@@ -48,8 +48,12 @@ include("functions/functions.php");
                         </a>
                     </li>
                     <li>
-                        <a href="login.php">Login
-                        </a>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>Login</a>";
+                            else echo "<a href='logout.php'>Logout</a>";
+                        ?>    
+                    
+                    
                     </li>
                 </ul>
             </div>
