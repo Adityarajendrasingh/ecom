@@ -17,7 +17,10 @@
                         <a href="shop.php">Shop</a>
                     </li>
                     <li>
-                        <a href="checkout.php">My Account</a>
+                    <?php
+                        if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>My Account</a>";
+                        else echo "<a href='customer/my_account.php?my_order'>My Account</a>";
+                    ?>
                     </li>
                 </ul>
                 <hr>

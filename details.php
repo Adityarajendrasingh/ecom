@@ -52,9 +52,17 @@ if(isset($_GET['pro_id'])) {
             <div class="col-md-6">
                 <ul class="menu">
                     <li><a href="customer_registration.php">New user</a></li>
-                    <li><a href="checkout.php">Checkout</a></li>
+                    <li><?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>My Account</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>My Account</a>";
+                        ?>
+                    </li>
                     <li><a href="cart.php">Cart</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>Login</a>";
+                            else echo "<a href='logout.php'>Logout</a>";
+                        ?>    </li>
                 </ul>
             </div>
         </div>
@@ -85,7 +93,10 @@ if(isset($_GET['pro_id'])) {
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="index.php">HOME</a></li>
                         <li class="active"><a href="shop.php">SHOP</a></li>
-                        <li><a href="customer/my_account.php">MY ACCOUNT</a></li>
+                        <li><?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>MY ACCOUNT</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>MY ACCOUNT</a>";
+                        ?></li>
                         <li><a href="cart.php">SHOPPING CART</a></li>
                         <li><a href="about.php">ABOUT US</a></li>
                         <li><a href="services.php">SERVICES</a></li>

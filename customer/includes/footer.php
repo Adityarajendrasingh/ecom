@@ -52,29 +52,6 @@
                         }
                     
                     ?>
-                    <!-- <li>
-                        <a href="#">Accesory_1</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">Accesory_2</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">Accesory_3</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">Accesory_4</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="#">Accesory_5</a>
-                    </li> -->
                 </ul>
                 <hr class = "hidden-md hidden-lg">
             </div>

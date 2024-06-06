@@ -40,8 +40,10 @@ include("functions/functions.php");
                         </a>
                     </li>
                     <li>
-                        <a href="checkout.php"> Checkout
-                        </a>
+                    <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>My Account</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>My Account</a>";
+                        ?>
                     </li>
                     <li>
                         <a href="cart.php"> Cart
@@ -88,7 +90,10 @@ include("functions/functions.php");
                             <a href="shop.php"> SHOP</a>
                         </li>
                         <li>
-                            <a href="customer/my_account.php"> MY ACCOUNT</a>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>MY ACCOUNT</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>MY ACCOUNT</a>";
+                        ?>
                         </li>
                         <li>
                             <a href="cart.php"> SHOPPING CART</a>
@@ -107,7 +112,7 @@ include("functions/functions.php");
                 <!-- padding nav ends -->
                 <a href="cart.php" class = "btn btn-primary navbar-btn right">
                     <i class = "fa fa-shopping-cart"></i>
-                    <span>$ items in cart</span>
+                    <span><?php echo item(); ?> items in cart</span>
                 </a>
                 <!-- navbar collapse right starts -->
                 <div class="navbar-collapse collapse right">
@@ -144,7 +149,7 @@ include("functions/functions.php");
             <div class="col-md-12">
                 <ul class = "breadcrumb">
                     <li>
-                        <a href="home.php">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>Registertion</li>
                 </ul>

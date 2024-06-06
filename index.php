@@ -43,16 +43,20 @@ include("functions/functions.php");
                         </a>
                     </li>
                     <li>
-                        <a href="checkout.php"> Checkout
-                        </a>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>My Account</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>My Account</a>";
+                        ?> 
                     </li>
                     <li>
                         <a href="cart.php"> Cart
                         </a>
                     </li>
                     <li>
-                        <a href="login.php">Login
-                        </a>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>Login</a>";
+                            else echo "<a href='logout.php'>Logout</a>";
+                        ?>    
                     </li>
                 </ul>
             </div>
@@ -89,8 +93,10 @@ include("functions/functions.php");
                             <a href="shop.php"> SHOP</a>
                         </li>
                         <li>
-                            <a href="customer/my_account.php"> MY ACCOUNT</a>
-                        </li>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>MY ACCOUNT</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>MY ACCOUNT</a>";
+                        ?> </li>
                         <li>
                             <a href="cart.php"> SHOPPING CART</a>
                         </li>

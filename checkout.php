@@ -24,35 +24,35 @@ include("functions/functions.php");
         <div class="container">
             <div class="col-md-6 offer">
                 <a href="#" class = "btn btn-success btn">
-                <?php
+                    <?php
                         if(!isset($_SESSION['customer_email'])) echo "Welcome Guest";
                         else echo "Welcome " .$_SESSION['customer_email']."";
                     ?>
                 </a>
                 <a href="#">
-                    Shopping Cart Total Price : INR <?php echo totalPrice(); ?>, Total Items: <?php echo item();?>
+                    Shopping Cart Total Price : <?php echo totalPrice(); ?>, Total Items: <?php echo item(); ?>
                 </a>
             </div>
             <div class="col-md-6">
                 <ul class = "menu">
                     <li>
-                        <a href="../customer_registration.php">New user
+                        <a href="customer_registration.php">New user
                         </a>
                     </li>
                     <li>
                     <?php
-                            if(!isset($_SESSION['customer_email'])) echo "<a href='../checkout.php'>My Account</a>";
-                            else echo "<a href='my_account.php?my_order'>My Account</a>";
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>My Account</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>My Account</a>";
                         ?>
                     </li>
                     <li>
-                        <a href="../cart.php"> Cart
+                        <a href="cart.php"> Cart
                         </a>
                     </li>
                     <li>
                         <?php
-                            if(!isset($_SESSION['customer_email'])) echo "<a href='../checkout.php'>Login</a>";
-                            else echo "<a href='../logout.php'>Logout</a>";
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>Login</a>";
+                            else echo "<a href='logout.php'>Logout</a>";
                         ?>    
                     </li>
                 </ul>
@@ -83,33 +83,35 @@ include("functions/functions.php");
                 <!-- padding nav starts -->
                 <div class="padding-nav">
                     <ul class = "nav navbar-nav navbar-left">
-                        <li>
-                            <a href="../index.php">HOME</a>
+                        <li class = "active">
+                            <a href="index.php">HOME</a>
                         </li>
                         <li>
-                            <a href="../shop.php"> SHOP</a>
-                        </li>
-                        <li class="active">
-                            <a href="my_account.php"> MY ACCOUNT</a>
+                            <a href="shop.php"> SHOP</a>
                         </li>
                         <li>
-                            <a href="../cart.php"> SHOPPING CART</a>
+                        <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>MY ACCOUNT</a>";
+                            else echo "<a href='customer/my_account.php?my_order'>MY ACCOUNT</a>";
+                        ?></li>
+                        <li>
+                            <a href="cart.php"> SHOPPING CART</a>
                         </li>
                         <li>
-                            <a href="../about.php"> ABOUT US</a>
+                            <a href="about.php"> ABOUT US</a>
                         </li>
                         <li>
-                            <a href="../services.php"> SERVICES</a>
+                            <a href="services.php"> SERVICES</a>
                         </li>
-                        <li>
-                            <a href="../contactus.php"> CONTACT US</a>
+                        <li class>
+                            <a href="contactus.php"> CONTACT US</a>
                         </li>
                     </ul>
                 </div>
                 <!-- padding nav ends -->
                 <a href="cart.php" class = "btn btn-primary navbar-btn right">
                     <i class = "fa fa-shopping-cart"></i>
-                    <span>$ items in cart</span>
+                    <span><?php echo item(); ?> items in cart</span>
                 </a>
                 <!-- navbar collapse right starts -->
                 <div class="navbar-collapse collapse right">
@@ -139,78 +141,47 @@ include("functions/functions.php");
     <!-- navbar ends -->
 
 
-<div id = "content">
-    <!-- container start -->
-    <div class="container">
-        <!-- colmd12 start -->
-        <div class="col-md-12">
-            <ul class = "breadcrumb">
-                <li>
-                    <a href="home.php">Home</a>
-                </li>
-                <li>My Account</li>
-            </ul>
-        </div>
-        <!-- colmd12 ends -->
-
-        <!--colmd3 starts  -->
-        <div class="col-md-3">
-            <?php
-            include("includes/sidebar.php");
-            ?>
-        </div>
-        <!-- colmd3ends -->
-
-        <div class="col-md-9">
-            <div class="box">
-                <h1 align = "center">Please Confirm Payment</h1>
-                <form action="confirm.php" method = "post" enctype = "multipart/form-data">
-                    <div class="form-group">
-                        <label for="">Invoice Number</label>
-                        <input type="text" name="invoice_number" class = "form-control" id="" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Transaction Number</label>
-                        <input type="text" name="transaction_number" class = "form-control" id="" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Amount</label>
-                        <input type="text" name="amount" class = "form-control" id="" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Payment Mode</label>
-                        <select name="payment_mode" class="form-control" id="">
-                            <option value="">Select</option>
-                            <option value="">Net Banking</option>
-                            <option value="">Card</option>
-                            <option value="">UPI</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Payment Date</label>
-                        <input type="date" name="date" class = "form-control" required="">
-                    </div>
-                    <div class="text-center">
-                        <button type = "submit" name = "confirm_payment" class="btn btn-primary btn-lg">Confirm</button>
-                    </div>
-                </form>
+    <div id = "content">
+        <!-- container start -->
+        <div class="container">
+            <!-- colmd12 start -->
+            <div class="col-md-12">
+                <ul class = "breadcrumb">
+                    <li>
+                        <a href="index.php">Home</a>
+                    </li>
+                    <li>Checkout</li>
+                </ul>
             </div>
-        </div>
+            <!-- colmd12 ends -->
+
+            <!--colmd3 starts  -->
+            <div class="col-md-3">
+                <?php
+                include("includes/sidebar.php");
+                ?>
+            </div>
 
 
+            <div class="col-md-9">
+                <?php
+                if(!isset($_SESSION['customer_email'])) {
+                    include('customer/customer_login.php');
+                }
+                else {
+                    include('payment_options.php');
+                }
+                ?>
+            </div>
+
+            </div>
+        <!-- container ends -->
     </div>
-    <!-- container ends -->
-</div>
-
-
-
 
 
 <!-- Footer Starts -->
 <?php
 include("includes/footer.php");
 ?>
-<!-- Footer ends -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
