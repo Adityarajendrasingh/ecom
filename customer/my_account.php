@@ -1,11 +1,7 @@
 <?php
-session_start();
-if(!isset($_GET['customer_email'])) {
-    echo "<script>window.open('../checkout.php','_self')</script>";
-}
-else{
-include("includes/db.php");
-include("functions/functions.php");
+ session_start();
+      include("includes/db.php");
+      include("functions/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +26,8 @@ include("functions/functions.php");
                 <a href="#" class = "btn btn-success btn">
                 <?php
                         if(!isset($_SESSION['customer_email'])) echo "Welcome Guest";
-                        else echo "Welcome " .$_SESSION['customer_email']."";
-                    ?>
+                        else echo "Welcome ".$_SESSION['customer_email']."";
+                ?>
                 </a>
                 <a href="#">
                     Shopping Cart Total Price : INR <?php echo totalPrice();?>, Total Items: <?php item(); ?>
@@ -113,7 +109,7 @@ include("functions/functions.php");
                     </ul>
                 </div>
                 <!-- padding nav ends -->
-                <a href="cart.php" class = "btn btn-primary navbar-btn right">
+                <a href="../cart.php" class = "btn btn-primary navbar-btn right">
                     <i class = "fa fa-shopping-cart"></i>
                     <span><?php item(); ?> items in cart</span>
                 </a>
@@ -217,4 +213,3 @@ include("includes/footer.php");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-<?php } ?>

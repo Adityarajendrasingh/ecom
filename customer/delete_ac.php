@@ -9,3 +9,17 @@
         </form>
     </center>
 </div>
+
+<?php
+
+$c_email=$_SESSION['customer_email'];
+if(isset($_POST['yes'])) {
+    $q = "delete from customers where customer_email='$c_email'";
+    $run_q = mysqli_query($con, $q);
+    if($run_q) {
+        session_destroy();
+        echo "<script>alert('Account Deleted')</script>";
+        echo "<script>window.open('../index.php','_self')</script>";
+    }
+}
+?>

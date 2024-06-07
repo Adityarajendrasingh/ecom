@@ -1,7 +1,15 @@
 <?php
 session_start();
-include("includes/db.php");
-include("functions/functions.php");
+if(!isset($_SESSION['customer_email'])){
+    echo "<script>window.open('../checkout.php','_self')</script>";
+}
+else{
+    include("includes/db.php");
+    include("functions/functions.php");
+    if(isset($_GET['order_id'])){
+    $order_id = $_GET['order_id'];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,7 +98,10 @@ include("functions/functions.php");
                             <a href="../shop.php"> SHOP</a>
                         </li>
                         <li class="active">
-                            <a href="my_account.php"> MY ACCOUNT</a>
+                    <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='../checkout.php'>MY ACCOUNT</a>";
+                            else echo "<a href='my_account.php?my_order'>MY ACCOUNT</a>";
+                        ?>
                         </li>
                         <li>
                             <a href="../cart.php"> SHOPPING CART</a>
@@ -164,14 +175,10 @@ include("functions/functions.php");
         <div class="col-md-9">
             <div class="box">
                 <h1 align = "center">Please Confirm Payment</h1>
-                <form action="confirm.php" method = "post" enctype = "multipart/form-data">
+                <form action="confirm.php?update_id=<?php echo $order_id; ?>" method = "post" enctype = "multipart/form-data">
                     <div class="form-group">
                         <label for="">Invoice Number</label>
                         <input type="text" name="invoice_number" class = "form-control" id="" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Transaction Number</label>
-                        <input type="text" name="transaction_number" class = "form-control" id="" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Amount</label>
@@ -181,19 +188,45 @@ include("functions/functions.php");
                         <label for="">Payment Mode</label>
                         <select name="payment_mode" class="form-control" id="">
                             <option value="">Select</option>
-                            <option value="">Net Banking</option>
+                            <option value="">Paypal</option>
                             <option value="">Card</option>
                             <option value="">UPI</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Transaction Number</label>
+                        <input type="text" name="trfr_number" class = "form-control" id="" required="">
                     </div>
                     <div class="form-group">
                         <label for="">Payment Date</label>
                         <input type="date" name="date" class = "form-control" required="">
                     </div>
                     <div class="text-center">
-                        <button type = "submit" name = "confirm_payment" class="btn btn-primary btn-lg">Confirm</button>
+                        <button name = "confirm_payment" class="btn btn-primary btn-lg" method = "post">Confirm</button>
                     </div>
                 </form>
+
+                <?php
+                    if(isset($_POST['confirm_payment'])) {
+                        $update_id = $_GET['update_id'];
+                        $invoice_number = $_POST['invoice_number'];
+                        $amount = $_POST['amount'];
+                        $payment_mode = $_POST['payment_mode'];
+                        $trfr_number = $_POST['trfr_number'];
+                        $date = $_POST['date'];
+                        $complete = "Complete";
+                        $code=mt_rand();
+
+                        $insert = "INSERT INTO payments(invoice_id, amount, payment_mode, ref_no, code, payment_date) VALUES ('$invoice_number', '$amount', '$payment_mode', '$trfr_number', '$code','$date')";
+                        $run_insert = mysqli_query($con, $insert);
+                        $update_q = "UPDATE customer_order SET order_status = '$complete' WHERE order_id = '$update_id'";
+                        $run_update_q = mysqli_query($con, $update_q);
+                        echo "<script>alert('Thank You! for purchasing, your orders will be completed within 24 hours')</script>";
+                        echo "<script>window.open('my_account.php?my_order','_self')</script>";
+                     
+                    }
+                ?>
+
             </div>
         </div>
 

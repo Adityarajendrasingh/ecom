@@ -25,7 +25,7 @@
         </div>
     </form>
     <center>
-        <a href="../customer_registration.php">
+        <a href="customer_registration.php">
             <h4>New? Register Now</h4>
         </a>
     </center>
