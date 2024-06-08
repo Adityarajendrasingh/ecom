@@ -1,7 +1,11 @@
 <?php
+session_start();
 include("includes/db.php");
-?>
-
+if(!isset($_SESSION['admin_email'])) {
+    echo "<script>window.open('login.php','_self')</script>";
+}
+else {
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,7 +154,7 @@ include("includes/db.php");
 
         if($run_product) {
             echo "<script>alert('Product Inserted Successfully')</script>";
-            echo "<script>window.open('insert_product.php', '_self')</script>";
+            echo "<script>window.open('index.php?view_products', '_self')</script>";
         } else {
             echo "<script>alert('Product Insertion Failed')</script>";
         }
@@ -161,3 +165,4 @@ include("includes/db.php");
 
 </body>
 </html>
+<?php } ?>

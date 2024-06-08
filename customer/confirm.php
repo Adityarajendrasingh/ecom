@@ -120,7 +120,7 @@ else{
                 <!-- padding nav ends -->
                 <a href="cart.php" class = "btn btn-primary navbar-btn right">
                     <i class = "fa fa-shopping-cart"></i>
-                    <span>$ items in cart</span>
+                    <span><?php echo item(); ?> items in cart</span>
                 </a>
                 <!-- navbar collapse right starts -->
                 <div class="navbar-collapse collapse right">
@@ -217,8 +217,8 @@ else{
                         $complete = "Complete";
                         $code=mt_rand();
 
-                        $insert = "INSERT INTO payments(invoice_id, amount, payment_mode, ref_no, code, payment_date) VALUES ('$invoice_number', '$amount', '$payment_mode', '$trfr_number', '$code','$date')";
-                        $run_insert = mysqli_query($con, $insert);
+                        // $insert = "INSERT INTO payments (invoice_id,amount,payment_mode,ref_no,code,payment_date) VALUES ('$invoice_number','$amount','$payment_mode','$trfr_number','$code','$date')";
+                        // $run_insert = mysqli_query($con, $insert);
                         $update_q = "UPDATE customer_order SET order_status = '$complete' WHERE order_id = '$update_id'";
                         $run_update_q = mysqli_query($con, $update_q);
                         echo "<script>alert('Thank You! for purchasing, your orders will be completed within 24 hours')</script>";

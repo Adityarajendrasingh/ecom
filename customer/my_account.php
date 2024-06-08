@@ -156,6 +156,7 @@
         <!-- colmd12 ends -->
 
         <!--colmd3 starts  -->
+        
         <div class="col-md-3">
             <?php
             include("includes/sidebar.php");
