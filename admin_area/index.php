@@ -71,6 +71,51 @@ else {
                 if(isset($_GET['view_products'])) {
                     include("view_product.php");
                 }
+                if(isset($_GET['delete_product'])) {
+                    include("delete_product.php");
+                }
+                if(isset($_GET['edit_product'])) {
+                    include("edit_product.php");
+                }
+
+                if(isset($_GET['insert_p_cats'])) {
+                    include("insert_p_cat.php");
+                }
+                if(isset($_GET['view_p_cats'])) {
+                    include("view_p_cat.php");
+                }
+                if(isset($_GET['delete_p_cat'])) {
+                    include("delete_p_cat.php");
+                }
+                if(isset($_GET['edit_p_cat'])) {
+                    include("edit_p_cat.php");
+                }
+
+                if(isset($_GET['insert_cats'])) {
+                    include("insert_cat.php");
+                }
+                if(isset($_GET['view_cats'])) {
+                    include("view_cat.php");
+                }
+
+                if(isset($_GET['delete_cat'])) {
+                    include("delete_cat.php");
+                }
+                if(isset($_GET['edit_cat'])) {
+                    include("edit_cat.php");
+                }
+                if(isset($_GET['insert_slides'])) {
+                    include("insert_slider.php");
+                }
+                if(isset($_GET['view_slides'])) {
+                    include("view_slider.php");
+                }
+                if(isset($_GET['delete_slider'])) {
+                    include("delete_slider.php");
+                }
+                if(isset($_GET['edit_slider'])) {
+                    include("edit_slider.php");
+                }
                 
                 ?>
                 
