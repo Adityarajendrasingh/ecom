@@ -3,34 +3,16 @@ if (!isset($_SESSION['admin_email'])) {
     echo "<script>window.open('login.php','_self')</script>";
 } else {
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E Commerce Website</title>
-    <!-- bootstrap library -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
     <!-- row starts -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="breadcrumb">
-                <li class="active">
-                    <i class="fa fa-dashboard"></i>
-                    Dashboard / Insert Slider
-                </li>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-lg-12">
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i> Dashboard / Slider
+            </li>
+        </ol>
     </div>
+</div>
 
     <div class="row">
         <div class="col-lg-12">
@@ -65,9 +47,6 @@ if (!isset($_SESSION['admin_email'])) {
         </div>
     </div>
     <!-- row ends -->
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <?php
 if (isset($_POST['submit'])) {
     $slider_name = $_POST['slider_name'];
@@ -98,7 +77,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
-</body>
-</html>
 <?php } ?>

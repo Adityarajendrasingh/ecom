@@ -116,7 +116,43 @@ else {
                 if(isset($_GET['edit_slider'])) {
                     include("edit_slider.php");
                 }
+                if(isset($_GET['view_customers'])) {
+                    include("view_customers.php");
+                }
+                if(isset($_GET['customer_delete'])) {
+                    include("delete_customer.php");
+                }
                 
+                if(isset($_GET['view_orders'])) {
+                    include("view_orders.php");
+                }
+                if(isset($_GET['order_delete'])) {
+                    include("delete_order.php");
+                }
+                if(isset($_GET['insert_users'])) {
+                    include("insert_users.php");
+                }
+                if(isset($_GET['view_users'])) {
+                    include("view_users.php");
+                }
+                if(isset($_GET['insert_box'])) {
+                    include("insert_box.php");
+                }
+                if(isset($_GET['view_box'])) {
+                    include("view_box.php");
+                }
+                if(isset($_GET['admin_delete'])) {
+                    include("admin_delete.php");
+                }
+                if(isset($_GET['edit_user'])) {
+                    include("user_profile_edit.php");
+                }
+                if(isset($_GET['delete_box'])) {
+                    include("delete_box.php");
+                }
+                if(isset($_GET['edit_box'])) {
+                    include("edit_box.php");
+                }
                 ?>
                 
             </div><!-- container-fluid finish -->

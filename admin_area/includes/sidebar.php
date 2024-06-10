@@ -159,6 +159,25 @@ else {
             </li><!-- li finish -->
             
             <li><!-- li begin -->
+                <a href="#" data-toggle="collapse" data-target="#boxes"><!-- a href begin -->
+                        
+                        <i class="fa fa-fw fa-arrows"></i> Boxes Section
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a><!-- a href finish -->
+                
+                <ul id="boxes" class="collapse"><!-- collapse begin -->
+                    <li><!-- li begin -->
+                        <a href="index.php?insert_box"> Insert Box </a>
+                    </li><!-- li finish -->
+                    <li><!-- li begin -->
+                        <a href="index.php?view_box"> View Boxes </a>
+                    </li><!-- li finish -->
+                </ul><!-- collapse finish -->
+                
+            </li><!-- li finish -->
+            
+            <li><!-- li begin -->
                 <a href="#" data-toggle="collapse" data-target="#slides"><!-- a href begin -->
                         
                         <i class="fa fa-fw fa-gear"></i> Slides
@@ -188,13 +207,6 @@ else {
                     <i class="fa fa-fw fa-book"></i> View Orders
                 </a><!-- a href finish -->
             </li><!-- li finish -->
-            
-            <li><!-- li begin -->
-                <a href="index.php?view_payments"><!-- a href begin -->
-                    <i class="fa fa-fw fa-money"></i> View Payments
-                </a><!-- a href finish -->
-            </li><!-- li finish -->
-            
             <li><!-- li begin -->
                 <a href="#" data-toggle="collapse" data-target="#users"><!-- a href begin -->
                         
@@ -211,7 +223,7 @@ else {
                         <a href="index.php?view_users"> View Users </a>
                     </li><!-- li finish -->
                     <li><!-- li begin -->
-                        <a href="index.php?user_profile?id=<?php echo $admin_id; ?>"> Edit User Profile </a>
+                        <a href="index.php?edit_user=<?php echo $admin_id; ?>"> Edit User Profile </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 

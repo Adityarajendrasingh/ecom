@@ -223,35 +223,30 @@ include("functions/functions.php");
 <div id = "advantage">
     <div class="container">
         <div class="same-height-row">
-            <div class="col-sm-4">
-                <div class="box same-height">
-                    <div class="icon">
-                        <i class = "fa fa-heart"></i>
-                    </div>
-                    <h3><a href="#">BEST PRICES</a></h3>
-                    <p>You can check on all others sites about the prices and then compare with us.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="box same-height">
-                    <div class="icon">
-                        <i class = "fa fa-heart"></i>
+            <?php
 
-                    </div>
-                    <h3><a href="#">100% SATISFACTION GUARANTEED FROM US</a></h3>
-                    <p>Free returns on everything for 3 months</p>
-                </div>
-            </div>
+                $get_boxes = "select * from boxes_section";
+                $run_boxes = mysqli_query($con, $get_boxes);
+                while($row = mysqli_fetch_array($run_boxes)) {
+                    $box_title = $row['box_title'];
+                    $box_desc = $row['box_desc'];
+
+            ?>
+
             <div class="col-sm-4">
                 <div class="box same-height">
                     <div class="icon">
                         <i class = "fa fa-heart"></i>
-
                     </div>
-                    <h3><a href="#">WE LOVE OUR CUSTOMERS</a></h3>
-                    <p>We are known to provide the best possible service ever.</p>
+                    <h3><a href="#"><?php echo $box_title; ?></a></h3>
+                    <p><?php echo $box_desc; ?></p>
                 </div>
             </div>
+
+            <?php } ?>
+
+
+
         </div>
     </div>
 </div>
