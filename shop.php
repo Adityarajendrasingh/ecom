@@ -180,8 +180,8 @@ include("functions/functions.php");
         <!--box ends  -->
             <div class="row">
             <?php
-                if (!isset($_GET['p_cat']) && !isset($_GET['cat_id'])) {
                     $per_page = 6;
+                if (!isset($_GET['p_cat']) && !isset($_GET['cat_id'])) {
 
                     if (isset($_GET['page'])) {
                         $page = $_GET['page'];

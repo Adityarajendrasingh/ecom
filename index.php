@@ -32,7 +32,7 @@ include("functions/functions.php");
                         else echo "Welcome " .$_SESSION['customer_email']."";
                 ?>
                 </a>
-                <a href="#">
+                <a href="#" class="shopcart">
                     Shopping Cart Total Price : INR <?php echo totalPrice();?>, Total Items: <?php item(); ?>
                 </a>
             </div>
@@ -62,6 +62,7 @@ include("functions/functions.php");
             </div>
         </div>
     </div>
+    <!-- <br> -->
     <!-- top bar ends -->
     <div class="navbar navbar-default" id = "navbar">
         <div class="container">
@@ -248,7 +249,7 @@ include("functions/functions.php");
             <div class="col-sm-4">
                 <div class="box same-height">
                     <div class="icon">
-                        <i class = "fa fa-heart"></i>
+                        <!-- <i class = "fa fa-heart"></i> -->
                     </div>
                     <h3><a href="#"><?php echo $box_title; ?></a></h3>
                     <p><?php echo $box_desc; ?></p>
@@ -265,7 +266,7 @@ include("functions/functions.php");
 <!-- advantages end -->
 
 
-<div id = "hot">
+<!-- <div id = "hot">
     <div class="box">
         <div class="container">
             <div class="col-md-12">
@@ -273,7 +274,7 @@ include("functions/functions.php");
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- product list starts -->
 <div id="content" class = "container">

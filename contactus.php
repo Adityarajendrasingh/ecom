@@ -175,6 +175,8 @@ include("functions/functions.php");
                             </p>
                         </center>
                     </div>
+                    <br>
+                    <br>
                     <form action="contactus.php" method = "post" class="">
                         <div class="form-group">
                             <label>Name</label>
