@@ -49,7 +49,7 @@ if(isset($_POST['login'])) {
     else if($check_customer == 1 && $check_cart == 0) {
         $_SESSION['customer_email']=$customer_email;
         echo "<script>alert('Successfully Logged In')</script>";
-        echo "<script>window.location.href = 'customer/my_account.php';</script>";
+        echo "<script>window.location.href = 'customer/my_account.php?my_order';</script>";
     }
     else {
         $_SESSION['customer_email']=$customer_email;

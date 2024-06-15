@@ -150,10 +150,21 @@ include("functions/functions.php");
         <div class="col-md-12">
             <div class="carousel slide" id = "myCarousel" data-ride = "carousel">
                 <ol class = "carousel-indicators">
-                    <li data-target = "#myCarousel" data-slide-to = "0" class = "action"></li>
+                    <?php
+                    $i = 0;
+                        $get_slider = "select * from slider";
+                        $run_slider = mysqli_query($con, $get_slider); // Corrected function call
+                        while($row = mysqli_fetch_array($run_slider)) { // Corrected function name
+                            $slider_name = $row['slider_name'];
+                            $slider_image = $row['slider_image'];
+                            echo "<li data-target = '#myCarousel' data-slide-to = '$i'></li>";
+                            $i++;
+                        }
+                    ?>
+                    <!-- <li data-target = "#myCarousel" data-slide-to = "0"></li>
                     <li data-target = "#myCarousel" data-slide-to = "1"></li>
                     <li data-target = "#myCarousel" data-slide-to = "2"></li>
-                    <li data-target = "#myCarousel" data-slide-to = "3"></li>
+                    <li data-target = "#myCarousel" data-slide-to = "3"></li> -->
                 </ol>
                 <!-- carousel inner start -->
                 <div class="carousel-inner">
@@ -180,17 +191,18 @@ include("functions/functions.php");
                         // First query: Fetch the first slider
                         $get_slider = "SELECT * FROM slider LIMIT 0,1";
                         $run_slider = mysqli_query($con, $get_slider);
-                        while($row = mysqli_fetch_array($run_slider)) {
+                        // while($row = mysqli_fetch_array($run_slider)) {
+                        $row = mysqli_fetch_array($run_slider);
                             $slider_name = $row['slider_name'];
                             $slider_image = $row['slider_image'];
                             echo "<div class='item active'>
                                     <img src='admin_area/slider_images/$slider_image'>
                                 </div>";
-                        }
+                        // }
                     ?>
 
                     <?php
-                        $get_slider = "select * from slider LIMIT 1,3";
+                        $get_slider = "select * from slider LIMIT 1,90";
                         $run_slider = mysqli_query($con, $get_slider); // Corrected function call
                         while($row = mysqli_fetch_array($run_slider)) { // Corrected function name
                             $slider_name = $row['slider_name'];

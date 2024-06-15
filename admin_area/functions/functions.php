@@ -34,4 +34,60 @@
 
         }
     }
+
+    function get_table($sql, $headers, $key, $has_img) {
+        global $db;
+
+        $o = "";
+        $o = '<table class="table table-bordered table-hover table-scripted">
+                        <thead>
+                            <tr>
+                                <th>Sr No</th>
+                                ';
+                                for($i = 0; $i < count($headers); $i++) {
+                                    $o .= '<th>'.$headers[$i].'</th>';
+                                }
+                                $o .= '
+                                <th>Delete</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+        ';
+        
+                                // $sql = "select product_id, product_title, product_price, product_img1, product_keywords, date from products";
+                                $i = 0;
+                                $run_product=mysqli_query($db, $sql);
+                                while($row = mysqli_fetch_array($run_product)) {
+                                    $id = $row[0];
+                                    $i++;
+$o .= '                                
+
+                            <tr>                                
+                            <td>'.$i.'</td>
+
+
+                                    ';
+                                    for($j = 0; $j < count($headers); $j++) {
+                                       if($j != count($headers) - 1 || $has_img == 0) $o .= '<td>'.$row[$j].'</td>';
+                                       else $o .= '<td><img src="product_images/'.$row[$j].'"height="50"></td>';
+                                    }
+$o .= '
+                                <td><a href="index.php?delete_'.$key.'='.$id.'">
+                                    <i class="fa fa-trash"></i> Delete
+                                </a></td>
+                                <td><a href="index.php?edit_'.$key.'='.$id.'">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a></td>
+                            </tr>
+
+';
+
+                            }
+                            $o .= '
+                        </tbody>
+                    </table>';
+                    return $o;
+    }
 ?>

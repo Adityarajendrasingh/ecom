@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
     $run_slides = mysqli_query($con, $view_slides);
     $count = mysqli_num_rows($run_slides);
 
-    if ($count < 4) {
+    if ($count < 50) {
         if (move_uploaded_file($temp_name, "slider_images/$slider_image")) {
             $insert_slide = "INSERT INTO slider (slider_name, slider_image) VALUES ('$slider_name', '$slider_image')";
             $run_slide = mysqli_query($con, $insert_slide);
