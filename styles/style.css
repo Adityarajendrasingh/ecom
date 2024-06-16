@@ -18,7 +18,8 @@ background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
 }
 
 #top .offer {
-    color: #fff;
+    color: #ffffff;
+    display: inline;
 }
 
 #top .offer .btn{
@@ -53,7 +54,6 @@ background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
     font-size: 12px;
     list-style: none;
 }
-
 @media(max-width: 991px) {
     #top ul.menu {
         text-align: center;
@@ -80,8 +80,8 @@ background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
 
 
 .navbar-header img {
-    width: 50%;
-    height: 4rem;
+    width: 100%;
+    height: 5rem;
 }
 
 

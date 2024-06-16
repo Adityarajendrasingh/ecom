@@ -26,15 +26,10 @@ include("functions/functions.php");
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer">
-                <a href="#" class = "btn btn-success btn">
-                <?php
-                        if(!isset($_SESSION['customer_email'])) echo "Welcome Guest";
-                        else echo "Welcome " .$_SESSION['customer_email']."";
-                ?>
-                </a>
-                <a href="#" class="shopcart">
-                    Shopping Cart Total Price : INR <?php echo totalPrice();?>, Total Items: <?php item(); ?>
-                </a>
+            <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php' class = 'btn btn-success btn'>Welcome Guest</a>";
+                            else echo "<a href='customer/my_account.php?my_order' class = 'btn btn-success btn'>Welcome " .$_SESSION['customer_email']."</a>";
+                        ?>
             </div>
             <div class="col-md-6">
                 <ul class = "menu">
@@ -295,5 +290,7 @@ include("includes/footer.php");
 <!-- Footer ends -->
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-132be125-9827-4748-b892-76d76c6b09ee" data-elfsight-app-lazy></div>
 </body>
 </html>

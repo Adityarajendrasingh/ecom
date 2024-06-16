@@ -47,7 +47,6 @@ if(isset($_GET['pro_id'])) {
                         if(!isset($_SESSION['customer_email'])) echo "Welcome Guest";
                         else echo "Welcome " .$_SESSION['customer_email']."";
                     ?></a>
-                <a href="#">Shopping Cart Total Price : INR <?php echo totalPrice();?>, Total Items: <?php item(); ?></a>
             </div>
             <div class="col-md-6">
                 <ul class="menu">
@@ -259,6 +258,9 @@ if(isset($_GET['pro_id'])) {
             <div class="box" id="details">
                 <h4>Product Details</h4>
                 <p><?php echo $p_desc; ?></p>
+                <a href="#">
+                <h4>Contact Seller</h4>
+                </a>
             </div>
             <div id="row same-height-row">
                 <div class="col-md-3 col-sm-6">

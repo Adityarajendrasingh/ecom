@@ -3,11 +3,17 @@ body{
     font-size: 14px;
     line-height: 1.4285143;
     color: #333333;
-    background-color: #f0f0f0;
+    background-color: #e7e7e7;
+
 }
 
 #top{
-    background-color: #555555;
+    /* background-color: #222831; */
+    background: #0f0c29; 
+background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
+background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
+
+
     padding: 10px 0;
 }
 
@@ -25,9 +31,19 @@ body{
         text-align: center;
     }
 }
-
 #top a{
     color: #fff;
+}
+#top .shopcart,
+#top .menu li a {
+    padding: 10px;
+}
+#top .shopcart:hover,
+#top .menu li a:hover {
+    text-decoration: none;
+    background: #EEE4B1;
+    border-radius: 14px;
+    color: #222831;
 }
 
 #top ul.menu {
@@ -74,7 +90,14 @@ body{
 
 /* header style now */
 .navbar {
-    background-color: #fff;
+
+background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+border: 0px solid transparent;
+border-radius: 0;
+    /* margin: -5px 0px 5px; */
 }
 .navbar-collapse .right {
     float: right;
@@ -93,18 +116,37 @@ body{
 .navbar ul.nav > li > a{
     text-transform: uppercase;
     font-weight: bold;
+    color: #ccc;
     font-size: 14px;
+    margin: 0 5px;
 }
 .padding-nav {
     padding-top: 10px;
 }
 .navbar ul.nav > li > a:hover {
     background: #e7e7e7;
+    border-radius: 20px;
+}
+.navbar .nav > .active a{
+    background: #e7e7e7;
+    border-radius: 20px;
+}
+
+.navbar .navbar-header .navbar-toggle {
+    color: #ccc;
+}
+
+.btn-primary {
+    background: #0575E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 .btn-primary {
     color: rgb(255, 255, 255);
     background-color: rgb(79, 191, 168);
-    border-color : rgb(65 179, 156);
+    /* border-color : rgb(65 179, 156); */
 }
 
 #search .navbar-form {
@@ -139,11 +181,11 @@ body{
 /* Advantage style */
 
 .box {
-    background: #fff;
+    background: #ffffff;
     margin: 0 0 30px;
-    border: solid 1px #e6e6e6;
+    /* border: solid 1px #727272; */
     padding: 20px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 #advantage {
     text-align: center;
@@ -173,10 +215,11 @@ body{
 
 #advantage .box h3 a:hover {
     text-decoration: none;
+    color: #0582ff;
 }
 #advantage .box p {
     position: relative;
-    color: #555555;
+    color: #959191;
     z-index: 2;
 }
 
@@ -401,7 +444,10 @@ body{
 
 /* footer style */
 #footer {
-    background: #e0e0e0;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: #646e74;
     padding: 20px 0;
 }
 #footer ul{

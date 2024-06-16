@@ -23,15 +23,10 @@ include("functions/functions.php");
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer">
-                <a href="#" class = "btn btn-success btn">
-                    <?php
-                        if(!isset($_SESSION['customer_email'])) echo "Welcome Guest";
-                        else echo "Welcome " .$_SESSION['customer_email']."";
-                    ?>
-                </a>
-                <a href="#">
-                    Shopping Cart Total Price : <?php echo totalPrice(); ?>, Total Items: <?php echo item(); ?>
-                </a>
+            <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php' class = 'btn btn-success btn'>Welcome Guest</a>";
+                            else echo "<a href='customer/my_account.php?my_order' class = 'btn btn-success btn'>Welcome " .$_SESSION['customer_email']."</a>";
+                        ?>
             </div>
             <div class="col-md-6">
                 <ul class = "menu">
@@ -157,15 +152,10 @@ include("functions/functions.php");
             <!-- colmd12 ends -->
 
             <!--colmd3 starts  -->
-            <div class="col-md-3">
-                <?php
-                include("includes/sidebar.php");
-                ?>
-            </div>
 
             <!-- colmd 9 start -->
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
                         <center>
@@ -174,7 +164,7 @@ include("functions/functions.php");
                     </div>
                     <br>
                     <br>
-                    <form action="customer_registration.php" method = "post" enctype="multipart/form-data">
+                    <form action="customer_registration.php" method = "POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Customer Name</label>
                             <input type="text" name="c_name" required = "" class = "form-control">
@@ -238,31 +228,45 @@ include("includes/footer.php");
 if(isset($_POST['submit'])) {
     $c_name=$_POST['c_name'];
     $c_email=$_POST['c_email'];
-    $c_password=$_POST['c_password'];
-    $c_country=$_POST['c_country'];
-    $c_city=$_POST['c_city'];
-    $c_contact=$_POST['c_contact'];
-    $c_address=$_POST['c_address'];
-    $c_image=$_FILES['c_image']['name'];
-    $c_tmp_image=$_FILES['c_image']['tmp_name'];//to store the image in computer 
-    $c_ip = getUserIP();
-
-    move_uploaded_file($c_tmp_image, "customer/customer_images/$c_image");
-    $insert_customer = "insert into customers (customer_name, customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values('$c_name','$c_email','$c_password','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
-    $run_customer=mysqli_query($con, $insert_customer);
-    $sel_cart="select * from cart where ip_add='$c_ip'";
-    $run_cart=mysqli_query($con, $sel_cart);
-    $check_cart = mysqli_num_rows($run_cart);
-    if($check_cart > 0) {
-        $_SESSION['customer_email']=$c_email;
-        echo "<script>alert('You have been registered successfully')</script>";
-        echo "<script>window.open('checkout.php','_self')</script>";
+    $check_cust = "select * from customers where customer_email = '$c_email'";
+    $run_check_cust = mysqli_query($con, $check_cust);
+    $row = mysqli_num_rows($run_check_cust);
+    if($row > 0) {
+        echo "<script>alert('This email already exists')</script>";
+        echo "<script>window.open('customer_registration.php','_self')</script>";
     }
     else {
-        $_SESSION['customer_email']=$c_email;
-        echo "<script>alert('You have been registered successfully')</script>";
-        echo "<script>window.open('index.php','_self')</script>";
-        
+        $c_password=$_POST['c_password'];
+        $c_country=$_POST['c_country'];
+        $c_city=$_POST['c_city'];
+        $c_contact=$_POST['c_contact'];
+        $c_address=$_POST['c_address'];
+        $c_image=$_FILES['c_image']['name'];
+        $c_tmp_image=$_FILES['c_image']['tmp_name']; 
+        $c_ip = getUserIP();
+        $verify_token = md5(rand());
+
+        move_uploaded_file($c_tmp_image, "customer/customer_images/$c_image");
+        $insert_customer = "insert into customers (customer_name, customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values('$c_name','$c_email','$c_password','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
+        $run_customer=mysqli_query($con, $insert_customer);
+
+
+
+
+        $sel_cart="select * from cart where ip_add='$c_ip'";
+        $run_cart=mysqli_query($con, $sel_cart);
+        $check_cart = mysqli_num_rows($run_cart);
+        if($check_cart > 0) {
+            $_SESSION['customer_email']=$c_email;
+            echo "<script>alert('You have been registered successfully')</script>";
+            echo "<script>window.open('checkout.php','_self')</script>";
+        }
+        else {
+            $_SESSION['customer_email']=$c_email;
+            echo "<script>alert('You have been registered successfully')</script>";
+            echo "<script>window.open('index.php','_self')</script>";
+            
+        }
     }
 }
 ?>

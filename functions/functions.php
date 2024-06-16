@@ -127,4 +127,8 @@ function getCat() {
         echo "<li><a href='shop.php?cat_id=$cat_id'>$cat_title</a></li>";
     }
 }
+
+function sendemail_verify($name, $email, $code) {
+    
+}
 ?>

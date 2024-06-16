@@ -31,15 +31,10 @@ else{
     <div id="top">
         <div class="container">
             <div class="col-md-6 offer">
-                <a href="#" class = "btn btn-success btn">
-                <?php
-                        if(!isset($_SESSION['customer_email'])) echo "Welcome Guest";
-                        else echo "Welcome " .$_SESSION['customer_email']."";
-                    ?>
-                </a>
-                <a href="#">
-                    Shopping Cart Total Price : INR <?php echo totalPrice(); ?>, Total Items: <?php echo item();?>
-                </a>
+            <?php
+                            if(!isset($_SESSION['customer_email'])) echo "<a href='../checkout.php' class = 'btn btn-success btn'>Welcome Guest</a>";
+                            else echo "<a href='my_account.php?my_order' class = 'btn btn-success btn'>Welcome " .$_SESSION['customer_email']."</a>";
+                        ?>
             </div>
             <div class="col-md-6">
                 <ul class = "menu">

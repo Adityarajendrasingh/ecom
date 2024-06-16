@@ -124,14 +124,19 @@ else {
     </div>
 
     <?php
+    $admin_email = $_SESSION['admin_email'];
     if(isset($_POST['submit'])) { // Check if the form is submitted
-        $product_title = mysqli_real_escape_string($con, $_POST['product_title']); // Sanitize input
-        $product_cat = mysqli_real_escape_string($con, $_POST['product_cat']); // Sanitize input
-        $cat = mysqli_real_escape_string($con, $_POST['cat']); // Sanitize input
-        $product_price = mysqli_real_escape_string($con, $_POST['product_price']); // Sanitize input
-        $product_desc = mysqli_real_escape_string($con, $_POST['product_desc']); // Sanitize input
-        $product_keywords = mysqli_real_escape_string($con, $_POST['product_keywords']); // Sanitize input
-
+        $product_title = mysqli_real_escape_string($con, $_POST['product_title']); 
+        $product_cat = mysqli_real_escape_string($con, $_POST['product_cat']); 
+        $cat = mysqli_real_escape_string($con, $_POST['cat']); 
+        $product_price = mysqli_real_escape_string($con, $_POST['product_price']); 
+        $product_desc = mysqli_real_escape_string($con, $_POST['product_desc']);
+        $product_keywords = mysqli_real_escape_string($con, $_POST['product_keywords']);
+        $find_admin = "select * from admins where admin_email = '$admin_email'";
+        $run_find_admin = mysqli_query($con, $find_admin);
+        $row = mysqli_fetch_array($run_find_admin);
+        $admin_id = $row['admin_id'];
+        $admin_name = $row['admin_name'];
         // Handle file uploads
         $product_img1 = $_FILES['product_img1']['name'];
         $product_img2 = $_FILES['product_img2']['name'];
@@ -147,8 +152,8 @@ else {
         move_uploaded_file($temp_name3, "product_images/$product_img3");
 
         // Insert product data into the database
-        $insert_product = "INSERT INTO products (p_cat_id, cat_id, date, product_title, product_img1, product_img2, product_img3, product_price, product_desc, product_keywords)
-                           VALUES ('$product_cat', '$cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_desc', '$product_keywords')";
+        $insert_product = "INSERT INTO products (p_cat_id, cat_id, date, product_title, product_img1, product_img2, product_img3, product_price, product_desc, product_keywords, admin_id)
+                           VALUES ('$product_cat', '$cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_desc', '$product_keywords', '$admin_id')";
 
         $run_product = mysqli_query($con, $insert_product);
 
