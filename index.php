@@ -59,86 +59,86 @@ include("functions/functions.php");
     </div>
     <!-- <br> -->
     <!-- top bar ends -->
-    <div class="navbar navbar-default" id = "navbar">
+    <div class="navbar navbar-default" id="navbar">
         <div class="container">
             <!-- navbar header start -->
             <div class="navbar-header">
-                <a href="index.php" class = "navbar-brand home">
-                    <img src="images/logo.png" alt="teehosting" class= "hidden-xs">
-                    <img src="images/logos.png" alt="teehosting" class= "visible-xs">
+                <a href="index.php" class="navbar-brand home">
+                    <img src="images/logo.png" alt="teehosting" class="hidden-xs">
+                    <img src="images/logos.png" alt="teehosting" class="visible-xs">
                 </a>
-                <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#navigation">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                     <span class="sr-only">Toggle Navigation</span>
-                    <i class = "fa fa-align-justify"></i>
+                    <i class="fa fa-align-justify"></i>
                 </button>
-                <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#search">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <i class = "fa fa-search"></i>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle Search</span>
+                    <i class="fa fa-search"></i>
                 </button>
             </div>
             <!-- navbar header end -->
-            <!-- navbar collaps menu start -->
-            <div class="navbar-collapse" id = "navigation">
+            <!-- navbar collapse menu start -->
+            <div class="navbar-collapse collapse" id="navigation">
                 <!-- padding nav starts -->
                 <div class="padding-nav">
-                    <ul class = "nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-left">
                         <li class="active">
                             <a href="index.php">HOME</a>
                         </li>
                         <li>
-                            <a href="shop.php"> SHOP</a>
+                            <a href="shop.php">SHOP</a>
                         </li>
                         <li>
-                        <?php
-                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>MY ACCOUNT</a>";
+                            <?php
+                            if (!isset($_SESSION['customer_email'])) echo "<a href='checkout.php'>MY ACCOUNT</a>";
                             else echo "<a href='customer/my_account.php?my_order'>MY ACCOUNT</a>";
-                        ?> </li>
-                        <li>
-                            <a href="cart.php"> SHOPPING CART</a>
+                            ?>
                         </li>
                         <li>
-                            <a href="about.php"> ABOUT US</a>
+                            <a href="cart.php">SHOPPING CART</a>
                         </li>
                         <li>
-                            <a href="services.php"> SERVICES</a>
-                        </li>
-                        <li>
-                            <a href="contactus.php"> CONTACT US</a>
+                            <a href="contactus.php">CONTACT US</a>
                         </li>
                     </ul>
                 </div>
                 <!-- padding nav ends -->
-                <a href="cart.php" class = "btn btn-primary navbar-btn right">
-                    <i class = "fa fa-shopping-cart"></i>
+                <a href="cart.php" class="btn btn-primary navbar-btn right">
+                    <i class="fa fa-shopping-cart"></i>
                     <span><?php item(); ?> items in cart</span>
                 </a>
                 <!-- navbar collapse right starts -->
                 <div class="navbar-collapse collapse right">
-                    <button class = "btn navbar-btn btn-primary" type = "button" data-toggle = "collapse" data-target = "#search">
-                        <span class = "sr-only">Toggle Search</span>
-                        <i class = "fa fa-search"></i>
+                    <button class="btn navbar-btn btn-primary" type="button" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="fa fa-search"></i>
                     </button>
                 </div>
                 <!-- navbar collapse right ends -->
-                <!--  -->
-                <div class="collapse clearfix" id ="search">
-                    <form action="result.php" class="navbar-form" method = "get">
+
+                <div class="collapse clearfix" id="search">
+                    <form action="result.php" class="navbar-form" method="get">
                         <div class="input-group">
-                            <input type="text" name = "user-query" placeholder = "Search" class = "form-control" required = "">
-                            <span class = "input-group-btn">
-                                <button type = "submit" value = "Search" name = "search" class = "btn btn-primary">
-                                    <i class = "fa fa-search"></i>
+                            <input type="text" name="user-query" placeholder="Search" class="form-control" required="">
+                            <span class="input-group-btn">
+                                <button type="submit" value="Search" name="search" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
                                 </button>
                             </span>
                         </div>
                     </form>
                 </div>
+                <!-- search collapse -->
+                <!-- search collapse end -->
             </div>
-            <!-- navbar collaps menu end-->
+
+            <!-- navbar collapse menu end -->
         </div>
     </div>
+
     <!-- navbar ends -->
 
+<!-- <div class="elfsight-app-132be125-9827-4748-b892-76d76c6b09ee" data-elfsight-app-lazy></div> -->
 
 
 <!-- slider starts -->
@@ -291,6 +291,5 @@ include("includes/footer.php");
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-132be125-9827-4748-b892-76d76c6b09ee" data-elfsight-app-lazy></div>
 </body>
 </html>

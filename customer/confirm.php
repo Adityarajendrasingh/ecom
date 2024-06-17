@@ -102,12 +102,6 @@ else{
                             <a href="../cart.php"> SHOPPING CART</a>
                         </li>
                         <li>
-                            <a href="../about.php"> ABOUT US</a>
-                        </li>
-                        <li>
-                            <a href="../services.php"> SERVICES</a>
-                        </li>
-                        <li>
                             <a href="../contactus.php"> CONTACT US</a>
                         </li>
                     </ul>
