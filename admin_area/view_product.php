@@ -32,12 +32,12 @@ else {
                                 <td>Sr No</td>
                                 <td>Product ID</td>
                                 <td>Product Title</td>
-                                <td>Profuct Image</td>
-                                <td>Profuct Price</td>
-                                <td>Profuct Keyword</td>
-                                <td>Profuct Date</td>
-                                <td>Profuct Delete</td>
-                                <td>Profuct Edit</td>
+                                <td>Product Image</td>
+                                <td>Product Price</td>
+                                <td>Product Keyword</td>
+                                <td>Product Category</td>
+                                <td>Product Delete</td>
+                                <td>Product Edit</td>
                             </tr>
                         </thead>
 

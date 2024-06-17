@@ -24,9 +24,9 @@ include("functions/functions.php");
         <div class="container">
             <div class="col-md-6 offer">
             <?php
-                            if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php' class = 'btn btn-success btn'>Welcome Guest</a>";
-                            else echo "<a href='customer/my_account.php?my_order' class = 'btn btn-success btn'>Welcome " .$_SESSION['customer_email']."</a>";
-                        ?>
+                if(!isset($_SESSION['customer_email'])) echo "<a href='checkout.php' class = 'btn btn-success btn'>Welcome Guest</a>";
+                else echo "<a href='customer/my_account.php?my_order' class = 'btn btn-success btn'>Welcome " .$_SESSION['customer_email']."</a>";
+            ?>
             </div>
             <div class="col-md-6">
                 <ul class = "menu">

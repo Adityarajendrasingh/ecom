@@ -9,10 +9,10 @@ if(!isset($_SESSION['admin_email'])) {
 
 if(isset($_GET['delete_p_cat'])) {
     $delete_id=$_GET['delete_p_cat'];
-    $delete_pro = "delete from product_category where p_cat_id='$delete_id'";
+    $delete_pro = "delete from sub_category where sub_cat_id='$delete_id'";
     $run_q = mysqli_query($con, $delete_pro);
     if($run_q) {
-        echo "<script>alert('Product Category Deleted')</script>";
+        echo "<script>alert('Sub Category Deleted')</script>";
         echo "<script>window.open('index.php?view_p_cats','_self')</script>";
     }
 }

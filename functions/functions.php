@@ -26,8 +26,8 @@
                 echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
             } 
             else {
-                $query = "INSERT INTO cart(p_id, ip_add, qty, size) VALUES('$p_id', '$ip_add', '$product_qty', '$product_size')";
-                $run_query = mysqli_query($db, $query);
+                // $query = "INSERT INTO cart(p_id, ip_add, qty, size) VALUES('$p_id', '$ip_add', '$product_qty', '$product_size')";
+                // $run_query = mysqli_query($db, $query);
                 echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
             }
         }
@@ -105,14 +105,14 @@ function totalPrice() {
     }
 // product categories called in sidebar.php
 
-function getPCats() {
+function getSubCats() {
     global $db;
-    $get_p_cats="select * from product_category";
-    $run_p_cats=mysqli_query($db, $get_p_cats);
-    while($row_p_cats=mysqli_fetch_array($run_p_cats)) {
-        $p_cat_id=$row_p_cats['p_cat_id'];
-        $p_cat_title=$row_p_cats['p_cat_title'];
-        echo "<li><a href='shop.php?p_cat=$p_cat_id'>$p_cat_title</a></li>";
+    $get_sub_cats="select * from sub_category";
+    $run_sub_cats=mysqli_query($db, $get_sub_cats);
+    while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
+        $sub_cat_id=$row_sub_cats['sub_cat_id'];
+        $sub_cat_title=$row_sub_cats['sub_cat_name'];
+        echo "<li><a href='shop.php?p_cat=$sub_cat_id'>$sub_cat_title</a></li>";
     }
 }
 

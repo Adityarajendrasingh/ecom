@@ -120,24 +120,6 @@ else {
                 
             </li><!-- li finish -->
             
-            <li><!-- li begin -->
-                <a href="#" data-toggle="collapse" data-target="#p_cat"><!-- a href begin -->
-                        
-                        <i class="fa fa-fw fa-edit"></i> Products Categories
-                        <i class="fa fa-fw fa-caret-down"></i>
-                        
-                </a><!-- a href finish -->
-                
-                <ul id="p_cat" class="collapse"><!-- collapse begin -->
-                    <li><!-- li begin -->
-                        <a href="index.php?insert_p_cats"> Insert Product Category </a>
-                    </li><!-- li finish -->
-                    <li><!-- li begin -->
-                        <a href="index.php?view_p_cats"> View Products Categories </a>
-                    </li><!-- li finish -->
-                </ul><!-- collapse finish -->
-                
-            </li><!-- li finish -->
             
             <li><!-- li begin -->
                 <a href="#" data-toggle="collapse" data-target="#cat"><!-- a href begin -->
@@ -153,6 +135,25 @@ else {
                     </li><!-- li finish -->
                     <li><!-- li begin -->
                         <a href="index.php?view_cats"> View Categories </a>
+                    </li><!-- li finish -->
+                </ul><!-- collapse finish -->
+                
+            </li><!-- li finish -->
+
+            <li><!-- li begin -->
+                <a href="#" data-toggle="collapse" data-target="#p_cat"><!-- a href begin -->
+                        
+                        <i class="fa fa-fw fa-edit"></i> Sub Categories
+                        <i class="fa fa-fw fa-caret-down"></i>
+                        
+                </a><!-- a href finish -->
+                
+                <ul id="p_cat" class="collapse"><!-- collapse begin -->
+                    <li><!-- li begin -->
+                        <a href="index.php?insert_p_cats"> Insert Sub Category </a>
+                    </li><!-- li finish -->
+                    <li><!-- li begin -->
+                        <a href="index.php?view_p_cats"> View Sub Categories </a>
                     </li><!-- li finish -->
                 </ul><!-- collapse finish -->
                 

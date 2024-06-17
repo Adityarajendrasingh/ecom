@@ -11,13 +11,14 @@
 <?php
 
 	if (isset($_GET['edit_p_cat'])) {
-		$edit_p_cat_id = $_GET['edit_p_cat'];
-		$edit_p_cat_query = "select * from product_category where p_cat_id='$edit_p_cat_id'";
-		$run_edit = mysqli_query($con,$edit_p_cat_query);
+		$edit_sub_cat_id = $_GET['edit_p_cat'];
+		$edit_sub_cat_query = "select * from sub_category where sub_cat_id='$edit_sub_cat_id'";
+		$run_edit = mysqli_query($con,$edit_sub_cat_query);
 		$row_edit = mysqli_fetch_array($run_edit);
-		$p_cat_id = $row_edit['p_cat_id'];
-		$p_cat_title = $row_edit['p_cat_title'];
-		$p_cat_desc = $row_edit['p_cat_desc'];
+		$sub_cat_id = $row_edit['sub_cat_id'];
+		$sub_cat_title = $row_edit['sub_cat_name'];
+		$sub_cat_desc = $row_edit['sub_cat_desc'];
+		$cat_title = $row_edit['cat_name'];
 	}
 
 ?>
@@ -28,7 +29,7 @@
 	
 		<ol class="breadcrumb">
 			<li>
-				<i class="fa fa-dashboard"></i> Dashboard / Edit Product Category
+				<i class="fa fa-dashboard"></i> Dashboard / Edit Sub Category
 			</li>
 		</ol>
 
@@ -46,7 +47,7 @@
 				
 				<h3 class="panel-title">
 					
-					<i class="fa fa-pencil fa-fw"></i> Edit Product Category
+					<i class="fa fa-pencil fa-fw"></i> Edit Sub Category
 
 				</h3>
 
@@ -58,23 +59,41 @@
 					
 					<div class="form-group"><!-- form-group begin -->
 						
-						<label class="control-label col-md-3"> Product Category Title </label>
+						<label class="control-label col-md-3"> Sub Category Title </label>
 
 						<div class="col-md-6"><!-- col-md-6 begin -->
 							
-							<input type="text" name="p_cat_title" class="form-control" value="<?php echo $p_cat_title; ?>">
+							<input type="text" name="sub_cat_title" class="form-control" value="<?php echo $sub_cat_title; ?>">
 
 						</div><!-- col-md-6 finish -->
 
 					</div><!-- form-group finish -->
+					<div class="form-group">
+                        <label class="col-md-3 control-label">Parent Category</label>
+                       <div class="col-md-6">
+                            <select name="cat_title" id="" class="form-control">
+                                <?php
+                                $find_cat = "select * from categories";
+                                $run_cat = mysqli_query($con, $find_cat);
+                                $i = 1;
+                                while($row = mysqli_fetch_array($run_cat)) {
+                                    $cat_name = $row['cat_title'];
+                                    echo "<option value=$i>$cat_name</option>";
+                                    $i++;
+                                }
+                                
+                                ?>
+                            </select>
+                        </div>
+                    </div>
 
 					<div class="form-group"><!-- form-group begin -->
 						
-						<label class="control-label col-md-3"> Product Category Description </label>
+						<label class="control-label col-md-3"> Sub Category Description </label>
 
 						<div class="col-md-6"><!-- col-md-6 begin -->
 							
-							<textarea name="p_cat_desc" type="text" cols="30" rows="10" class="form-control"><?php echo $p_cat_desc; ?></textarea>
+							<textarea name="sub_cat_desc" type="text" cols="30" rows="10" class="form-control"><?php echo $sub_cat_desc; ?></textarea>
 
 						</div><!-- col-md-6 finish -->
 
@@ -105,12 +124,13 @@
 <?php 
 
 	if (isset($_POST['update'])) {
-		$p_cat_title = $_POST['p_cat_title'];
-		$p_cat_desc = $_POST['p_cat_desc'];
-		$update_p_cat = "update product_category set p_cat_title='$p_cat_title ',p_cat_desc='$p_cat_desc' where p_cat_id='$p_cat_id'";
-		$run_p_cat = mysqli_query($con,$update_p_cat);
-		if ($run_p_cat) {
-			echo "<script>alert('Your Product Category has been Updated')</script>";
+		$sub_cat_title = $_POST['sub_cat_title'];
+		$sub_cat_desc = $_POST['sub_cat_desc'];
+		$cat_title= $_POST['cat_title'];
+		$update_sub_cat = "update sub_category set sub_cat_name='$sub_cat_title', cat_name='$cat_title', sub_cat_desc='$sub_cat_desc' where sub_cat_id='$sub_cat_id'";
+		$run_sub_cat = mysqli_query($con, $update_sub_cat);
+		if ($run_sub_cat) {
+			echo "<script>alert('Your Sub Category has been Updated')</script>";
 			echo "<script>window.open('index.php?view_p_cats','_self')</script>";
 		}
 	}

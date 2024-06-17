@@ -84,7 +84,7 @@ else {
                     </div>
                 </div>
             </div>
-            <a href="index.php?view_p_cats">
+            <a href="index.php?view_cats">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right">
