@@ -48,7 +48,7 @@ else {
                                 $i = 1;
                                 while($row = mysqli_fetch_array($run_cat)) {
                                     $cat_name = $row['cat_title'];
-                                    echo "<option value=$i>$cat_name</option>";
+                                    echo "<option value='$cat_name'>$cat_name</option>";
                                     $i++;
                                 }
                                 

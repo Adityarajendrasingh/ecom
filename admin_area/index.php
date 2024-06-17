@@ -67,6 +67,9 @@ else {
                 if(isset($_GET['dashboard'])) {
                     include("dashboard.php");
                 }
+                if(isset($_GET['insert_sub_cat'])) {
+                    include("insert_sub_cat.php");
+                }
                 if(isset($_GET['insert_products'])) {
                     include("insert_product.php");
                 }

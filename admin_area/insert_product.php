@@ -122,7 +122,9 @@ if(!isset($_SESSION['admin_email'])) {
             $run_product = mysqli_query($con, $insert_product);
             if($run_product) {
                 echo "<script>alert('Product Inserted Successfully')</script>";
-                echo "<script>window.open('index.php?view_products', '_self')</script>";
+                // echo "<script>window.open('index.php?view_products', '_self')</script>";                
+                echo "<script>window.open('index.php?insert_sub_cat=" . $product_cat . "', '_self')</script>";
+
 
             } else {
                 echo "<script>alert('Product Insertion Failed')</script>";
