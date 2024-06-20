@@ -66,10 +66,6 @@ include("functions/functions.php");
                     <span class="sr-only">Toggle Navigation</span>
                     <i class = "fa fa-align-justify"></i>
                 </button>
-                <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#search">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <i class = "fa fa-search"></i>
-                </button>
             </div>
             <!-- navbar header end -->
             <!-- navbar collaps menu start -->
@@ -102,27 +98,8 @@ include("functions/functions.php");
                     <i class = "fa fa-shopping-cart"></i>
                     <span><?php item(); ?> items in cart</span>
                 </a>
-                <!-- navbar collapse right starts -->
-                <div class="navbar-collapse collapse right">
-                    <button class = "btn navbar-btn btn-primary" type = "button" data-toggle = "collapse" data-target = "#search">
-                        <span class = "sr-only">Toggle Search</span>
-                        <i class = "fa fa-search"></i>
-                    </button>
-                </div>
                 <!-- navbar collapse right ends -->
                 <!--  -->
-                <div class="collapse clearfix" id ="search">
-                    <form action="result.php" class="navbar-form" method = "get">
-                        <div class="input-group">
-                            <input type="text" name = "user-query" placeholder = "Search" class = "form-control" required = "">
-                            <span class = "input-group-btn">
-                                <button type = "submit" value = "Search" name = "search" class = "btn btn-primary">
-                                    <i class = "fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
             </div>
             <!-- navbar collaps menu end-->
         </div>
@@ -150,7 +127,8 @@ include("functions/functions.php");
                         <h1>Shopping Cart</h1>
                         <?php
                         $ip_add=getUserIP();
-                        $select_cart="select * from cart where ip_add='$ip_add'";
+                        $customer_email = $_SESSION['customer_email'];
+                        $select_cart="select * from cart where customer_email='$customer_email'";
                         $run_cart = mysqli_query($con, $select_cart);
                         $count=mysqli_num_rows($run_cart);
                         ?>
@@ -248,7 +226,7 @@ include("functions/functions.php");
 
 
 
-                <div id = "row same-height-row">
+                <!-- <div id = "row same-height-row">
                     <div class="col-md-3 col-sm-6">
                         <div class="box same-height headline">
                             <h3 class = "text-center">
@@ -298,7 +276,7 @@ include("functions/functions.php");
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- colmd9ends -->
 

@@ -14,7 +14,7 @@ include("functions/functions.php");
     <title>E Commerce Website</title>
     <!-- bootstrap library -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/extra.css">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -58,6 +58,8 @@ include("functions/functions.php");
         </div>
     </div>
     <!-- <br> -->
+
+    <img class="bg-img" src="images/background.jpg" alt="">
     <!-- top bar ends -->
     <div class="navbar navbar-default" id="navbar">
         <div class="container">
@@ -70,10 +72,6 @@ include("functions/functions.php");
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                     <span class="sr-only">Toggle Navigation</span>
                     <i class="fa fa-align-justify"></i>
-                </button>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only">Toggle Search</span>
-                    <i class="fa fa-search"></i>
                 </button>
             </div>
             <!-- navbar header end -->
@@ -107,27 +105,7 @@ include("functions/functions.php");
                     <i class="fa fa-shopping-cart"></i>
                     <span><?php item(); ?> items in cart</span>
                 </a>
-                <!-- navbar collapse right starts -->
-                <div class="navbar-collapse collapse right">
-                    <button class="btn navbar-btn btn-primary" type="button" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle Search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
                 <!-- navbar collapse right ends -->
-
-                <div class="collapse clearfix" id="search">
-                    <form action="result.php" class="navbar-form" method="get">
-                        <div class="input-group">
-                            <input type="text" name="user-query" placeholder="Search" class="form-control" required="">
-                            <span class="input-group-btn">
-                                <button type="submit" value="Search" name="search" class="btn btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
                 <!-- search collapse -->
                 <!-- search collapse end -->
             </div>
@@ -138,7 +116,7 @@ include("functions/functions.php");
 
     <!-- navbar ends -->
 
-<!-- <div class="elfsight-app-132be125-9827-4748-b892-76d76c6b09ee" data-elfsight-app-lazy></div> -->
+    
 
 
 <!-- slider starts -->
@@ -275,7 +253,7 @@ include("functions/functions.php");
 <div id="content" class = "container">
     <div class="row">
         <?php
-            getPro();
+            // getPro();
         ?>
     </div>
 </div>

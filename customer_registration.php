@@ -67,10 +67,7 @@ include("functions/functions.php");
                     <span class="sr-only">Toggle Navigation</span>
                     <i class = "fa fa-align-justify"></i>
                 </button>
-                <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#search">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <i class = "fa fa-search"></i>
-                </button>
+
             </div>
             <!-- navbar header end -->
             <!-- navbar collaps menu start -->
@@ -104,26 +101,8 @@ include("functions/functions.php");
                     <span><?php echo item(); ?> items in cart</span>
                 </a>
                 <!-- navbar collapse right starts -->
-                <div class="navbar-collapse collapse right">
-                    <button class = "btn navbar-btn btn-primary" type = "button" data-toggle = "collapse" data-target = "#search">
-                        <span class = "sr-only">Toggle Search</span>
-                        <i class = "fa fa-search"></i>
-                    </button>
-                </div>
                 <!-- navbar collapse right ends -->
                 <!--  -->
-                <div class="collapse clearfix" id ="search">
-                    <form action="result.php" class="navbar-form" method = "get">
-                        <div class="input-group">
-                            <input type="text" name = "user-query" placeholder = "Search" class = "form-control" required = "">
-                            <span class = "input-group-btn">
-                                <button type = "submit" value = "Search" name = "search" class = "btn btn-primary">
-                                    <i class = "fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
             </div>
             <!-- navbar collaps menu end-->
         </div>

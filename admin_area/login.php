@@ -35,6 +35,9 @@ include("includes/db.php");
         <h4 class="forgot-password">
             <a href="forgot_password.php">Lost your password?</a>
         </h4>
+        <h4 class="new-user">
+            <a href="new_register.php">New? Register</a>
+        </h4>
 	</form><!-- form finish -->
     </div>
 

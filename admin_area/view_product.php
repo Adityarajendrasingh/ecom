@@ -44,7 +44,12 @@ else {
                         <tbody>
                             <?php
                                 $i = 0;
-                                $get_products="select * from products";
+                                $admin_email = $_SESSION['admin_email'];
+                                $find_admin = "select * from admins where admin_email = '$admin_email'";
+                                $run_find_admin = mysqli_query($con, $find_admin);
+                                $row = mysqli_fetch_array($run_find_admin);
+                                $admin_id = $row['admin_id'];
+                                $get_products="select * from products where admin_id = '$admin_id'";
                                 $run_product=mysqli_query($con, $get_products);
                                 while($row = mysqli_fetch_array($run_product)) {
                                     $pro_id = $row['product_id'];

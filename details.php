@@ -9,7 +9,7 @@ if(isset($_GET['pro_id'])) {
     $run_product = mysqli_query($con, $get_product);
     $row_product = mysqli_fetch_array($run_product);
 
-    $p_cat_id = $row_product['p_cat_id'];
+    $sub_cat_id = $row_product['sub_cat_id'];
     $p_title = $row_product['product_title'];
     $p_price = $row_product['product_price'];
     $p_desc = $row_product['product_desc'];
@@ -17,10 +17,10 @@ if(isset($_GET['pro_id'])) {
     $p_img2 = $row_product['product_img2'];
     $p_img3 = $row_product['product_img3'];
 
-    $get_p_cat = "SELECT * FROM product_category WHERE p_cat_id='$p_cat_id'";
-    $run_p_cat = mysqli_query($con, $get_p_cat);
-    $row_p_cat = mysqli_fetch_array($run_p_cat);
-    $p_cat_title = $row_p_cat['p_cat_title'];
+    $get_sub_cat = "SELECT * FROM sub_category WHERE sub_cat_id='$sub_cat_id'";
+    $run_sub_cat = mysqli_query($con, $get_sub_cat);
+    $row_sub_cat = mysqli_fetch_array($run_sub_cat);
+    $sub_cat_title = $row_sub_cat['sub_cat_name'];
 }
 ?>
 <!DOCTYPE html>
@@ -79,10 +79,6 @@ if(isset($_GET['pro_id'])) {
                     <span class="sr-only">Toggle Navigation</span>
                     <i class="fa fa-align-justify"></i>
                 </button>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <i class="fa fa-search"></i>
-                </button>
             </div>
             <!-- navbar header end -->
             <!-- navbar collapse menu start -->
@@ -106,25 +102,7 @@ if(isset($_GET['pro_id'])) {
                     <span><?php item(); ?> items in cart</span>
                 </a>
                 <!-- navbar collapse right starts -->
-                <div class="navbar-collapse collapse right">
-                    <button class="btn navbar-btn btn-primary" type="button" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle Search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
                 <!-- navbar collapse right ends -->
-                <div class="collapse clearfix" id="search">
-                    <form action="result.php" class="navbar-form" method="get">
-                        <div class="input-group">
-                            <input type="text" name="user-query" placeholder="Search" class="form-control" required="">
-                            <span class="input-group-btn">
-                                <button type="submit" value="Search" name="search" class="btn btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
             </div>
             <!-- navbar collapse menu end-->
         </div>
@@ -139,7 +117,6 @@ if(isset($_GET['pro_id'])) {
             <ul class="breadcrumb">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="shop.php">Shop</a></li>
-                <li><a href="shop.php?p_cat=<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></a></li>
                 <li><?php echo $p_title; ?></li>
             </ul>
         </div>

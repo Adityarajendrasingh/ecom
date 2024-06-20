@@ -3,6 +3,11 @@ if(!isset($_SESSION['admin_email'])) {
     echo "<script>window.open('login.php','_self')</script>";
 }
 else {
+    $admin_email = $_SESSION['admin_email'];
+    $find_admin_id = "select * from admins where admin_email = '$admin_email'";
+    $run_find_admin = mysqli_query($con, $find_admin_id);
+    $row = mysqli_fetch_array($run_find_admin);
+    $admin_id = $row['admin_id'];
 ?>
 <!-- /row 1 starts -->
 <div class="row">
@@ -36,15 +41,15 @@ else {
                                 <td>Customer Contact Number</td>
                                 <td>Customer Country</td>
                                 <td>Customer City</td>
-                                <td>Customer Delete</td>
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
                                 $i = 0;
-                                $get_customers="select * from customers";
+                                $get_customers="select * from admins_customers where admin_id = '$admin_id'";
                                 $run_customer=mysqli_query($con, $get_customers);
+                                // echo "<script>alert('here')</script>";
                                 while($row = mysqli_fetch_array($run_customer)) {
                                     $customer_id = $row['customer_id'];
                                     $customer_name = $row['customer_name'];
@@ -66,10 +71,6 @@ else {
                                 <td><?php echo $customer_contact; ?></td>
                                 <td><?php echo $customer_country; ?></td>
                                 <td><?php echo $customer_city; ?></td>
-                                <td><a href="index.php?customer_delete=<?php echo $customer_id; ?>">
-                                        <i class="fa fa-trash"></i> Delete
-                                    </a>
-                                </td>
                             </tr>
 
 

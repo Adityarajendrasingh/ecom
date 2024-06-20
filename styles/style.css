@@ -10,10 +10,8 @@ body{
 #top{
     /* background-color: #222831; */
     background: #0f0c29; 
-background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
-background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
-
-
+    background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
     padding: 10px 0;
 }
 
@@ -91,9 +89,10 @@ background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
 /* header style now */
 .navbar {
 
-background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #8E54E9, #4776E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
+background: linear-gradient(to right, #8E54E9, #4776E6);
 
+ /* background: transparent; */
 
 border: 0px solid transparent;
 border-radius: 0;
@@ -202,6 +201,7 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
 }
 #slider {
     width: 100%;
+    margin-top: 800px;
     margin-bottom: 40px;
     margin-left: 0;
     margin-right: 0;
@@ -337,11 +337,11 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
 
 
 /* product category */
-#content .panel .sidebar-menu{
+#content .sidebar-menu{
     box-sizing: border-box;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
-#content .panel .sidebar-menu ul.nav.category-menu li a{
+#content .sidebar-menu ul.nav.category-menu li{
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -349,7 +349,6 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
     padding: 5px 0;
     margin: 0;
 }
-
 
 
 
