@@ -7,22 +7,19 @@
             <?php getCat(); ?>
         </ul>
         <br>
-        <!-- <a href="shop.php">  -->
-            <!-- <button id="apply-filter-category" class="btn btn-primary">Apply Category Filter</button> -->
-        <!-- </a> -->
        </div>
        
 </div>
 <div class="panel panel-default sidebar-menu" id="show_sub_cat">
     <div class="panel-heading">
-        <h3 class="panel-title">Product Category</h3>
+        <h3 class="panel-title">Product Type</h3>
     </div>
     <div class="panel-body">
-        <ul class="nav nav-pills nav-stacked category-menu" id = "category_checked">
+        <ul class="nav nav-pills nav-stacked category-menu" id = "sub_category_checked">
         <?php
-        if($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        // if($_SERVER['REQUEST_METHOD'] !== 'POST') {
             getSubCats();
-        }
+        // }
         ?>
         </ul>
     <br>

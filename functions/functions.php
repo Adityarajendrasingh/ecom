@@ -106,37 +106,37 @@ function totalPrice() {
 
         }
     }
-    function getSubCatsFilter($par_id) {
-        global $db;
-        $find_par_cat_id = "SELECT * FROM categories WHERE cat_id IN ($par_id)";
-        $run_par_cat_id = mysqli_query($db, $find_par_cat_id);
+    // function getSubCatsFilter($par_id) {
+    //     global $db;
+    //     $find_par_cat_id = "SELECT * FROM categories WHERE cat_id IN ($par_id)";
+    //     $run_par_cat_id = mysqli_query($db, $find_par_cat_id);
     
-        $par_names = [];
-        while ($rowcat = mysqli_fetch_array($run_par_cat_id)) {
-            array_push($par_names, $rowcat['cat_title']);
-        }
+    //     $par_names = [];
+    //     while ($rowcat = mysqli_fetch_array($run_par_cat_id)) {
+    //         array_push($par_names, $rowcat['cat_title']);
+    //     }
     
-        $par_names_string = "'" . implode("','", $par_names) . "'";
+    //     $par_names_string = "'" . implode("','", $par_names) . "'";
     
     
-        $get_sub_cats = "SELECT * FROM sub_category WHERE cat_name IN ($par_names_string)";
-        $run_sub_cats = mysqli_query($db, $get_sub_cats);
-        if(mysqli_num_rows($run_sub_cats) > 0) {
-        echo"
-        <div class='panel-heading'>
-            <h3 class='panel-title'>Sub Category</h3>
-        </div>
-        <div class='panel-body'>
-            <ul class='nav nav-pills nav-stacked category-menu'>";
-        while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
-            $sub_cat_id=$row_sub_cats['sub_cat_id'];
-            $sub_cat_title=$row_sub_cats['sub_cat_name'];
-            echo "<li><input type='checkbox' class = 'get_sub_cat_id' id='' name='$sub_cat_title' value='$sub_cat_id'>  $sub_cat_title</li>";
-        }
-        echo "</ul>
-            <br> <button id='apply-filter-sub-category' class='btn btn-primary'>Apply Sub Category Filter</button>
-            </div>";}
-    }
+    //     $get_sub_cats = "SELECT * FROM sub_category WHERE cat_name IN ($par_names_string)";
+    //     $run_sub_cats = mysqli_query($db, $get_sub_cats);
+    //     if(mysqli_num_rows($run_sub_cats) > 0) {
+    //     echo"
+    //     <div class='panel-heading'>
+    //         <h3 class='panel-title'>Sub Category</h3>
+    //     </div>
+    //     <div class='panel-body'>
+    //         <ul class='nav nav-pills nav-stacked category-menu'>";
+    //     while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
+    //         $sub_cat_id=$row_sub_cats['sub_cat_id'];
+    //         $sub_cat_title=$row_sub_cats['sub_cat_name'];
+    //         echo "<li><input type='checkbox' class = 'get_sub_cat_id' id='' name='$sub_cat_title' value='$sub_cat_id'>  $sub_cat_title</li>";
+    //     }
+    //     echo "</ul>
+    //         <br> <button id='apply-filter-sub-category' class='btn btn-primary'>Apply Sub Category Filter</button>
+    //         </div>";}
+    // }
 
 
     function getSubCats() {
@@ -206,20 +206,20 @@ function sendemail_verify($name, $email, $code) {
                 console.error('AJAX error:', error);
             }
         });
-        $.ajax({
-            url: 'show_sub_cat_list.php',
-            method: 'POST',
-            data: {
-                'cat_sub':allcats
-            },
-            success: function(response) {
-                console.log('Server response:', response);
-                $('#show_sub_cat').html(response);
-            },
-            error: function(xhr, status, error) {
-                console.error('AJAX error:', error);
-            }
-        });
+        // $.ajax({
+        //     url: 'show_sub_cat_list.php',
+        //     method: 'POST',
+        //     data: {
+        //         'cat_sub':allcats
+        //     },
+        //     success: function(response) {
+        //         console.log('Server response:', response);
+        //         $('#show_sub_cat').html(response);
+        //     },
+        //     error: function(xhr, status, error) {
+        //         console.error('AJAX error:', error);
+        //     }
+        // });
     }   
     // function applyFilterSubCategory() {
     //     var allsubcats = [];

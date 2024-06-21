@@ -25,10 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $live_search = "%" . $live_search . "%";
         $query .= " AND product_title LIKE '$live_search'";
     }
-    if (!empty($categories)) {
+    if(!empty($categories) && !empty($subcategories)) {
+        $query .= " AND (cat_id IN ($categories_list) OR sub_cat_id IN ($subcategories_list))";
+    }
+    else if (!empty($categories)) {
         $query .= " AND cat_id IN ($categories_list)";
     }
-    if (!empty($subcategories)) {
+    else if (!empty($subcategories)) {
         $query .= " AND sub_cat_id IN ($subcategories_list)";
     }
     if ($min_price > 0) {
