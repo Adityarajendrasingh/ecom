@@ -106,37 +106,51 @@ function totalPrice() {
 
         }
     }
-function getSubCats($par_id) {
-    global $db;
-    $find_par_cat_id = "SELECT * FROM categories WHERE cat_id IN ($par_id)";
-    $run_par_cat_id = mysqli_query($db, $find_par_cat_id);
-
-    $par_names = [];
-    while ($rowcat = mysqli_fetch_array($run_par_cat_id)) {
-        array_push($par_names, $rowcat['cat_title']);
+    function getSubCatsFilter($par_id) {
+        global $db;
+        $find_par_cat_id = "SELECT * FROM categories WHERE cat_id IN ($par_id)";
+        $run_par_cat_id = mysqli_query($db, $find_par_cat_id);
+    
+        $par_names = [];
+        while ($rowcat = mysqli_fetch_array($run_par_cat_id)) {
+            array_push($par_names, $rowcat['cat_title']);
+        }
+    
+        $par_names_string = "'" . implode("','", $par_names) . "'";
+    
+    
+        $get_sub_cats = "SELECT * FROM sub_category WHERE cat_name IN ($par_names_string)";
+        $run_sub_cats = mysqli_query($db, $get_sub_cats);
+        if(mysqli_num_rows($run_sub_cats) > 0) {
+        echo"
+        <div class='panel-heading'>
+            <h3 class='panel-title'>Sub Category</h3>
+        </div>
+        <div class='panel-body'>
+            <ul class='nav nav-pills nav-stacked category-menu'>";
+        while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
+            $sub_cat_id=$row_sub_cats['sub_cat_id'];
+            $sub_cat_title=$row_sub_cats['sub_cat_name'];
+            echo "<li><input type='checkbox' class = 'get_sub_cat_id' id='' name='$sub_cat_title' value='$sub_cat_id'>  $sub_cat_title</li>";
+        }
+        echo "</ul>
+            <br> <button id='apply-filter-sub-category' class='btn btn-primary'>Apply Sub Category Filter</button>
+            </div>";}
     }
 
-    $par_names_string = "'" . implode("','", $par_names) . "'";
 
-
-    $get_sub_cats = "SELECT * FROM sub_category WHERE cat_name IN ($par_names_string)";
-    $run_sub_cats = mysqli_query($db, $get_sub_cats);
-    if(mysqli_num_rows($run_sub_cats) > 0) {
-    echo"
-    <div class='panel-heading'>
-        <h3 class='panel-title'>Sub Category</h3>
-    </div>
-    <div class='panel-body'>
-        <ul class='nav nav-pills nav-stacked category-menu'>";
-    while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
-        $sub_cat_id=$row_sub_cats['sub_cat_id'];
-        $sub_cat_title=$row_sub_cats['sub_cat_name'];
-        echo "<li><input type='checkbox' class = 'get_sub_cat_id' id='' name='$sub_cat_title' value='$sub_cat_id'>  $sub_cat_title</li>";
+    function getSubCats() {
+        global $db;
+        $get_sub_cats = "SELECT * FROM sub_category";
+        $run_sub_cats = mysqli_query($db, $get_sub_cats);
+        if(mysqli_num_rows($run_sub_cats) > 0) {
+            while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
+                $sub_cat_id=$row_sub_cats['sub_cat_id'];
+                $sub_cat_title=$row_sub_cats['sub_cat_name'];
+                echo "<li><input type='checkbox' class = 'get_sub_cat_id' id='' name='$sub_cat_title' value='$sub_cat_id'>  $sub_cat_title</li>";
+            }
+        }
     }
-    echo "</ul>
-        <br> <button id='apply-filter-sub-category' class='btn btn-primary'>Apply Sub Category Filter</button>
-        </div>";}
-}
 
 
 function getCat() {
@@ -206,36 +220,19 @@ function sendemail_verify($name, $email, $code) {
                 console.error('AJAX error:', error);
             }
         });
-    }    
-    // function applySearch() {
-    //     var live_search = $('#search-text').val();
-    //     $.ajax({
-    //         url: 'process.php',
-    //         method: 'POST',
-    //         data: {
-    //             'live_search': live_search
-    //         },
-    //         success: function(response) {
-    //             console.log('Server response:', response);
-    //             $('#products_list_filter').html(response);
-    //         },
-    //         error: function(xhr, status, error) {
-    //             console.error('AJAX error:', error);
-    //         }
-    //     });
-    // }
-    // function applyFilterCategory() {
-    //     var allcats = [];
-    //     $('.get_cat_id').each(function() {
+    }   
+    // function applyFilterSubCategory() {
+    //     var allsubcats = [];
+    //     $('.get_sub_cat_id').each(function() {
     //         if($(this).is(":checked")) {
-    //             allcats.push($(this).val());
+    //             allsubcats.push($(this).val());
     //         }
     //     });
     //     $.ajax({
     //         url: 'process.php',
     //         method: 'POST',
     //         data: {
-    //             'categories':allcats
+    //             'subcategories':allsubcats
     //         },
     //         success: function(response) {
     //             console.log('Server response:', response);
@@ -245,41 +242,5 @@ function sendemail_verify($name, $email, $code) {
     //             console.error('AJAX error:', error);
     //         }
     //     });
-    //     $.ajax({
-    //         url: 'show_sub_cat_list.php',
-    //         method: 'POST',
-    //         data: {
-    //             'cat_sub':allcats
-    //         },
-    //         success: function(response) {
-    //             console.log('Server response:', response);
-    //             $('#show_sub_cat').html(response);
-    //         },
-    //         error: function(xhr, status, error) {
-    //             console.error('AJAX error:', error);
-    //         }
-    //     });
     // }
-    function applyFilterSubCategory() {
-        var allsubcats = [];
-        $('.get_sub_cat_id').each(function() {
-            if($(this).is(":checked")) {
-                allsubcats.push($(this).val());
-            }
-        });
-        $.ajax({
-            url: 'process.php',
-            method: 'POST',
-            data: {
-                'subcategories':allsubcats
-            },
-            success: function(response) {
-                console.log('Server response:', response);
-                $('#products_list_filter').html(response);
-            },
-            error: function(xhr, status, error) {
-                console.error('AJAX error:', error);
-            }
-        });
-    }
 </script>

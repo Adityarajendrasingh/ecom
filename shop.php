@@ -467,26 +467,11 @@ include("includes/footer.php");
             $('#search-text').keyup(function() {
                 applyFilterPrice();
             });
-
-
             $('.get_cat_id').change(function() {
                 applyFilterPrice();
-                // alert('aaa');
-                // var d = document.getElementById('show_sub_cat');
-                // if(d.style.display === 'none') {
-                //     d.style.display = 'block';
-                // }
             });
             $('.get_sub_cat_id').change(function() {
                 applyFilterPrice();
-            });
-
-            $('#live-search').click(function() {
-                applyFilterPrice();
-            });
-            $('#apply-filter-sub-category').click(function() {
-                alert('aaa');
-                applyFilterSubCategory();
             });
         });
     </script>
