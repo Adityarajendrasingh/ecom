@@ -112,79 +112,71 @@ include("functions/functions.php");
 
     <div id = "content">
         <!-- container start -->
-        <div class="container">
-            <!-- colmd12 start -->
-            <div class="col-md-12">
-                <ul class = "breadcrumb">
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>Registertion</li>
-                </ul>
+        <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>New User Registration</h4>
             </div>
-            <!-- colmd12 ends -->
+            <div class="card-body">
 
-            <!--colmd3 starts  -->
-
-            <!-- colmd 9 start -->
-
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <center>
-                            <h2>New User Registration</h2>
-                        </center>
-                    </div>
-                    <br>
-                    <br>
-                    <form action="customer_registration.php" method = "POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Customer Name</label>
-                            <input type="text" name="c_name" required = "" class = "form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Customer Email</label>
-                            <input type="text" name="c_email" id="" class = "form-control" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Customer Password</label>
-                            <input type="password" name="c_password" id="" class = "form-control" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Country</label>
-                            <input type="text" name="c_country" id="" class = "form-control" required="">
-                        
-                        </div>
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" name="c_city" id="" class = "form-control" required="">
-                        
-                        </div>
-                        <div class="form-group">
-                            <label>Contact Number</label>
-                            <input type="text" name="c_contact" id="" class = "form-control" required="">
-                        
-                        </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" name="c_address" id="" class = "form-control" required="">
-                        
-                        </div>
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input type="file" id="FileID" name="c_image" id="" class = "form-control" required="">
-                        
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class = "btn btn-primary" name="submit">
-                            <i class="fa fa-user-md"></i> Register</button>
-                        </div>
-                        
-                    </form>
+            <form action="sendmail.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Customer Name</label>
+                    <input type="text" name="c_name" required="" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label>Customer Email</label>
+                    <input type="email" name="c_email" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Customer Password</label>
+                    <input type="password" name="c_password" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" name="c_country" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="c_city" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="text" name="c_contact" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" name="c_address" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" id="FileID" name="c_image" class="form-control" required="">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" name="submit-customer-form">
+                        <i class="fa fa-user-md"></i> Register
+                    </button>
+                </div>
+            </form>
+
             </div>
-        <!-- colmd9 ends -->
         </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // var messageText = "<?php echo $_SESSION['status'] ?? '';  ?>";
+        // if(messageText != ''){
+        //     Swal.fire({
+        //         title: "Thank you!",
+        //         text: messageText,
+        //         icon: "success"
+        //     });
+        //     <?php unset($_SESSION['status']); ?>
+        // }
+    </script>
         <!-- container ends -->
     </div>
 
@@ -198,7 +190,7 @@ include("includes/footer.php");
 </body>
 </html>
 <?php
-if(isset($_POST['submit'])) {
+if(isset($_POST['submit-customer-form'])) {
     $c_name=$_POST['c_name'];
     $c_email=$_POST['c_email'];
     $check_cust = "select * from customers where customer_email = '$c_email'";
