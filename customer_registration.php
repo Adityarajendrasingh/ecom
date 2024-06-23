@@ -190,48 +190,48 @@ include("includes/footer.php");
 </body>
 </html>
 <?php
-if(isset($_POST['submit-customer-form'])) {
-    $c_name=$_POST['c_name'];
-    $c_email=$_POST['c_email'];
-    $check_cust = "select * from customers where customer_email = '$c_email'";
-    $run_check_cust = mysqli_query($con, $check_cust);
-    $row = mysqli_num_rows($run_check_cust);
-    if($row > 0) {
-        echo "<script>alert('This email already exists')</script>";
-        echo "<script>window.open('customer_registration.php','_self')</script>";
-    }
-    else {
-        $c_password=$_POST['c_password'];
-        $c_country=$_POST['c_country'];
-        $c_city=$_POST['c_city'];
-        $c_contact=$_POST['c_contact'];
-        $c_address=$_POST['c_address'];
-        $c_image=$_FILES['c_image']['name'];
-        $c_tmp_image=$_FILES['c_image']['tmp_name']; 
-        $c_ip = getUserIP();
-        $verify_token = md5(rand());
+// if(isset($_POST['submit-customer-form'])) {
+//     $c_name=$_POST['c_name'];
+//     $c_email=$_POST['c_email'];
+//     $check_cust = "select * from customers where customer_email = '$c_email'";
+//     $run_check_cust = mysqli_query($con, $check_cust);
+//     $row = mysqli_num_rows($run_check_cust);
+//     if($row > 0) {
+//         echo "<script>alert('This email already exists')</script>";
+//         echo "<script>window.open('customer_registration.php','_self')</script>";
+//     }
+//     else {
+//         $c_password=$_POST['c_password'];
+//         $c_country=$_POST['c_country'];
+//         $c_city=$_POST['c_city'];
+//         $c_contact=$_POST['c_contact'];
+//         $c_address=$_POST['c_address'];
+//         $c_image=$_FILES['c_image']['name'];
+//         $c_tmp_image=$_FILES['c_image']['tmp_name']; 
+//         $c_ip = getUserIP();
+//         $verify_token = md5(rand());
 
-        move_uploaded_file($c_tmp_image, "customer/customer_images/$c_image");
-        $insert_customer = "insert into customers (customer_name, customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values('$c_name','$c_email','$c_password','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
-        $run_customer=mysqli_query($con, $insert_customer);
-
-
+//         move_uploaded_file($c_tmp_image, "customer/customer_images/$c_image");
+//         $insert_customer = "insert into customers (customer_name, customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip) values('$c_name','$c_email','$c_password','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
+//         $run_customer=mysqli_query($con, $insert_customer);
 
 
-        $sel_cart="select * from cart where ip_add='$c_ip'";
-        $run_cart=mysqli_query($con, $sel_cart);
-        $check_cart = mysqli_num_rows($run_cart);
-        if($check_cart > 0) {
-            $_SESSION['customer_email']=$c_email;
-            echo "<script>alert('You have been registered successfully')</script>";
-            echo "<script>window.open('checkout.php','_self')</script>";
-        }
-        else {
-            $_SESSION['customer_email']=$c_email;
-            echo "<script>alert('You have been registered successfully')</script>";
-            echo "<script>window.open('index.php','_self')</script>";
+
+
+//         $sel_cart="select * from cart where ip_add='$c_ip'";
+//         $run_cart=mysqli_query($con, $sel_cart);
+//         $check_cart = mysqli_num_rows($run_cart);
+//         if($check_cart > 0) {
+//             $_SESSION['customer_email']=$c_email;
+//             echo "<script>alert('You have been registered successfully')</script>";
+//             echo "<script>window.open('checkout.php','_self')</script>";
+//         }
+//         else {
+//             $_SESSION['customer_email']=$c_email;
+//             echo "<script>alert('You have been registered successfully')</script>";
+//             echo "<script>window.open('index.php','_self')</script>";
             
-        }
-    }
-}
+//         }
+//     }
+// }
 ?>

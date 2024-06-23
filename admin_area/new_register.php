@@ -46,7 +46,7 @@ include("includes/db.php");
             </div>
 
             <div class="panel-body">
-                <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                <form action="sendmail.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="col-md-3 control-label">User Name</label>
                         <div class="col-md-6">
@@ -95,11 +95,10 @@ include("includes/db.php");
                             <textarea name="admin_about" type = "text" cols="19" rows="6" class="form-control" required></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="col-md-3 control-label"></label>
-                        <div class="col-md-6">
-                            <input value="Submit Now" type="submit" name="submit" class="btn btn-primary form-control">
-                        </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" name="submit_admin_form">
+                            <i class="fa fa-user-md"></i> Register
+                        </button>
                     </div>
                 </form>
             </div>
@@ -109,29 +108,40 @@ include("includes/db.php");
 </div>
 
 <?php
-if(isset($_POST['submit'])) {
-    $admin_name=$_POST['admin_name'];
-    $admin_email=$_POST['admin_email'];
-    $admin_pass=$_POST['admin_pass'];
-    $admin_country=$_POST['admin_country'];
-    $admin_contact=$_POST['admin_contact'];
-    $admin_about=$_POST['admin_about'];
-    $admin_job=$_POST['admin_job'];
-    $admin_image=$_FILES['admin_image']['name'];
-    $temp_admin_image=$_FILES['admin_image']['tmp_name'];
+// if(isset($_POST['submit_admin_form'])) {
+//     $admin_name=$_POST['admin_name'];
+//     $admin_email=$_POST['admin_email'];
+//     $check_cust = "select * from admins where admin_email = '$admin_email'";
+//     $run_check_cust = mysqli_query($con, $check_cust);
+//     $row = mysqli_num_rows($run_check_cust);
+//     if($row > 0) {
+//         echo "<script>alert('This email already exists')</script>";
+//         echo "<script>window.open('new_register.php','_self')</script>";
+//     }
+//     else{
+//         $admin_pass=$_POST['admin_pass'];
+//         $admin_country=$_POST['admin_country'];
+//         $admin_contact=$_POST['admin_contact'];
+//         $admin_about=$_POST['admin_about'];
+//         $admin_job=$_POST['admin_job'];
+//         $admin_image=$_FILES['admin_image']['name'];
+//         $temp_admin_image=$_FILES['admin_image']['tmp_name'];
 
-    move_uploaded_file($temp_admin_image, "admin_images/$admin_image");
-
-
-    $insert_q = "insert into admins (admin_name, admin_email, admin_pass, admin_image, admin_contact, admin_country, admin_job, admin_about) values('$admin_name','$admin_email', '$admin_pass','$admin_image','$admin_contact','$admin_country','$admin_job','$admin_about')";
-    $run_q = mysqli_query($con, $insert_q);
-    if($run_q) {
-        echo "<script>alert('New admin has been registered successfully')</script>";
-        echo "<script>window.open('login.php','_self')</script>";
-    }
-}
+//         // move_uploaded_file($temp_admin_image, "admin_images/$admin_image");
+//         $insert_q = "insert into admin_verification (admin_name, admin_email, admin_pass, admin_country, admin_image, admin_contact, admin_job, admin_about) values('$admin_name','$admin_email', '$admin_pass','$admin_image','$admin_contact','$admin_country','$admin_job','$admin_about')";
+//         $run_q = mysqli_query($con, $insert_q);
+//         if($run_q) {
+//             echo "<script>alert('New admin has been registered successfully')</script>";
+//             echo "<script>window.open('login.php','_self')</script>";
+//         }
+//     }
+// }
 
 ?>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
