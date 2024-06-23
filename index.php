@@ -135,43 +135,20 @@ include("functions/functions.php");
                             $i++;
                         }
                     ?>
-                    <!-- <li data-target = "#myCarousel" data-slide-to = "0"></li>
-                    <li data-target = "#myCarousel" data-slide-to = "1"></li>
-                    <li data-target = "#myCarousel" data-slide-to = "2"></li>
-                    <li data-target = "#myCarousel" data-slide-to = "3"></li> -->
                 </ol>
                 <!-- carousel inner start -->
                 <div class="carousel-inner">
 
-
-                    <!-- static -->
-
-                    <!-- <div class="item active">
-                        <img src="admin_area/slider_images/img1.png">
-                    </div>
-                    <div class="item">
-                        <img src="admin_area/slider_images/img2.png">
-                    </div>
-                    <div class="item">
-                        <img src="admin_area/slider_images/img3.png">
-                    </div>
-                    <div class="item">
-                        <img src="admin_area/slider_images/img4.png">
-                    </div> -->
-
-
-                    <!-- dynamic -->
                     <?php
-                        // First query: Fetch the first slider
                         $get_slider = "SELECT * FROM slider LIMIT 0,1";
                         $run_slider = mysqli_query($con, $get_slider);
                         // while($row = mysqli_fetch_array($run_slider)) {
                         $row = mysqli_fetch_array($run_slider);
-                            $slider_name = $row['slider_name'];
-                            $slider_image = $row['slider_image'];
-                            echo "<div class='item active'>
-                                    <img src='admin_area/slider_images/$slider_image'>
-                                </div>";
+                        $slider_name = $row['slider_name'];
+                        $slider_image = $row['slider_image'];
+                        echo "<div class='item active' id ='carousel_img$i'>
+                                <img src='admin_area/slider_images/$slider_image' style='max-width: 100%;height: auto;'>
+                            </div>";
                         // }
                     ?>
 
@@ -182,7 +159,7 @@ include("functions/functions.php");
                             $slider_name = $row['slider_name'];
                             $slider_image = $row['slider_image'];
                             echo "<div class='item'>
-                                    <img src='admin_area/slider_images/$slider_image'>
+                                    <img src='admin_area/slider_images/$slider_image' style='max-width: 100%;height: auto;'>
                                 </div>";
                         }
                     ?>

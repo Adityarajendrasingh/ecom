@@ -218,174 +218,6 @@ include("functions/functions.php");
                 
 
 <?php
-
-
-
-
-
-                // if (!isset($_GET['p_cat']) && !isset($_GET['cat_id'])) {
-
-                //     if (isset($_GET['page'])) {
-                //         $page = $_GET['page'];
-                //     } 
-                //     else {
-                //         $page = 1;
-                //     }
-
-                //     $start_from = ($page - 1) * $per_page;
-                //     $get_product = "SELECT * FROM products ORDER BY 1 DESC LIMIT $start_from, $per_page";
-                //     $run_pro = mysqli_query($con, $get_product);
-
-                //     while ($row = mysqli_fetch_array($run_pro)) {
-                //         $pro_id = $row['product_id'];
-                //         $pro_title = $row['product_title'];
-                //         $pro_price = $row['product_price'];
-                //         $pro_img1 = $row['product_img1'];
-
-                //         echo "
-                //         <div class='col-md-4 col-sm-6 center-responsive' id = 'responsiveproducts'>
-                //             <div class='product'>
-                //                 <a href='details.php?pro_id=$pro_id'>
-                //                     <img src='admin_area/product_images/$pro_img1' class='img-responsive'>
-                //                 </a>
-                //                 <div class='text'>
-                //                     <h3>
-                //                         <a href='details.php?pro_id=$pro_id'>$pro_title</a>
-                //                     </h3>
-                //                     <p class='price'>
-                //                         INR $pro_price
-                //                     </p>
-                //                     <p class='buttons'>
-                //                         <a href='details.php?pro_id=$pro_id' class='btn btn-default'>View Details</a>
-                //                         <a href='details.php?pro_id=$pro_id' class='btn btn-primary'>
-                //                             <i class='fa fa-shopping-cart'></i> Add to cart
-                //                         </a>
-                //                     </p>
-                //                 </div>
-                //             </div>
-                //         </div>
-                //         ";
-                //     }
-                // }
-                // if(isset($_GET['p_cat'])) {
-                //     $sub_cat_id=$_GET['p_cat'];
-                //     $get_sub_cat="select * from sub_category where sub_cat_id='$sub_cat_id'";
-                //     $run_sub_cat=mysqli_query($con, $get_sub_cat);
-                //     $row_sub_cat=mysqli_fetch_array($run_sub_cat);
-                //     $sub_cat_title=$row_sub_cat['sub_cat_name'];
-                //     $sub_cat_desc=$row_sub_cat['sub_cat_desc'];
-                //     $get_products="select * from products where sub_cat_id='$sub_cat_id'";
-                //     $run_products=mysqli_query($con, $get_products);
-                //     $count=mysqli_num_rows($run_products);
-                //     if($count==0) {
-                //         echo "
-                //         <div class='box'>
-                //         <h1>No Product Found In This Product Categories</h1>
-                //         </div>
-                //         ";
-                //     }
-                //     else{
-                //         echo "
-                //         <div class='box'>
-                //         <h1>$sub_cat_title</h1>
-                //         <p>$sub_cat_desc</p>
-                //         </div>
-                //         ";
-                //     }
-                //     while ($row_products = mysqli_fetch_array($run_products)) {
-                //         $pro_id = $row_products['product_id'];
-                //         $pro_title = $row_products['product_title'];
-                //         $pro_price = $row_products['product_price'];
-                //         $pro_img1 = $row_products['product_img1'];
-                //         echo "
-                //         <div class='col-md-4 col-sm-6 center-responsive'>
-                //           <div class='product'>
-                //           <a href='details.php?pro_id=$pro_id'>
-                //           <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                //           </a>
-                //           <div class='text'>
-                //           <h3>
-                //           <a href='details.php?pro_id=$pro_id'>
-                //           $pro_title
-                //           </a>
-                //           </h3>
-                //           <p class='price'>
-                //           $pro_price
-                //           </p>
-                //           <p class='button'>
-                //           <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-                //           View details
-                //           </a>
-                //           <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-                //           <i class='fa fa-shopping-cart'></i> Add to Cart
-                //           </a>
-                //           </p>
-                //           </div>
-                //           </div>
-                //           </div>
-                //         ";
-                //     }
-                // }
-                // if(isset($_GET['cat_id'])) {
-                //     $cat_id=$_GET['cat_id'];
-                //     $get_cat="select * from categories where cat_id='$cat_id'";
-                //     $run_cats=mysqli_query($con, $get_cat);
-                //     $row_cat=mysqli_fetch_array($run_cats);
-                //     $cat_title=$row_cat['cat_title'];
-                //     $cat_desc=$row_cat['cat_desc'];
-                //     $get_products="select * from products where cat_id='$cat_id'";
-                //     $run_products=mysqli_query($con, $get_products);
-                //     $count=mysqli_num_rows($run_products);
-                //     if($count==0) {
-                //         echo "
-                //         <div class='box'>
-                //         <h1>No Product Found In This Product Categories</h1>
-                //         </div>
-                //         ";
-                //     }
-                //     else{
-                //         echo "
-                //         <div class='box'>
-                //         <h1>$cat_title</h1>
-                //         <p>$cat_desc</p>
-                //         </div>
-                //         ";
-                //     }
-                //     while ($row_products = mysqli_fetch_array($run_products)) {
-                //         $pro_id = $row_products['product_id'];
-                //         $pro_title = $row_products['product_title'];
-                //         $pro_price = $row_products['product_price'];
-                //         $pro_desc = $row_products['product_desc'];
-                //         $pro_img1 = $row_products['product_img1'];
-                //         echo "
-                //         <div class='col-md-4 col-sm-6 center-responsive' id =''>
-                //           <div class='product'>
-                //           <a href='details.php?pro_id=$pro_id'>
-                //           <img class='img-responsive' src='admin_area/product_images/$pro_img1'>
-                //           </a>
-                //           <div class='text'>
-                //           <h3>
-                //           <a href='details.php?pro_id=$pro_id'>
-                //           $pro_title
-                //           </a>
-                //           </h3>
-                //           <p class='price'>
-                //           $pro_price
-                //           </p>
-                //           <p class='button'>
-                //           <a class='btn btn-default' href='details.php?pro_id=$pro_id'>
-                //           View details
-                //           </a>
-                //           <a class='btn btn-primary' href='details.php?pro_id=$pro_id'>
-                //           <i class='fa fa-shopping-cart'></i> Add to Cart
-                //           </a>
-                //           </p>
-                //           </div>
-                //           </div>
-                //           </div>
-                //         ";
-                //     }
-                // }
             ?>
             </div>
             <!-- row ends -->
@@ -394,53 +226,53 @@ include("functions/functions.php");
 
                 
                 <?php
-                if (!isset($_GET['p_cat']) && !isset($_GET['cat_id'])) {
-                    $query = "SELECT * FROM products";
-                    $result = mysqli_query($con, $query);
+                // if (!isset($_GET['p_cat']) && !isset($_GET['cat_id'])) {
+                //     $query = "SELECT * FROM products";
+                //     $result = mysqli_query($con, $query);
 
-                    $total_record = mysqli_num_rows($result);
-                    $total_pages = ceil($total_record / $per_page);
+                //     $total_record = mysqli_num_rows($result);
+                //     $total_pages = ceil($total_record / $per_page);
 
-                    echo "<li><a href='shop.php?page=1'>First Page</a></li>";
+                //     echo "<li><a href='shop.php?page=1'>First Page</a></li>";
 
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                        echo "<li><a href='shop.php?page=" . $i . "'>" . $i . "</a></li>";
-                    }
+                //     for ($i = 1; $i <= $total_pages; $i++) {
+                //         echo "<li><a href='shop.php?page=" . $i . "'>" . $i . "</a></li>";
+                //     }
 
-                    echo "<li><a href='shop.php?page=$total_pages'>Last Page</a></li>";
-                }
-                if(isset($_GET['cat_id'])) {
-                    $cat_id = $_GET['cat_id'];
-                    $query = "SELECT * FROM products where cat_id = '$cat_id'";
-                    $result = mysqli_query($con, $query);
+                //     echo "<li><a href='shop.php?page=$total_pages'>Last Page</a></li>";
+                // }
+                // if(isset($_GET['cat_id'])) {
+                //     $cat_id = $_GET['cat_id'];
+                //     $query = "SELECT * FROM products where cat_id = '$cat_id'";
+                //     $result = mysqli_query($con, $query);
 
-                    $total_record = mysqli_num_rows($result);
-                    $total_pages = ceil($total_record / $per_page);
-                    if($total_pages != 0) {
-                        echo "<li><a href='shop.php?cat_id=$cat_id & page=1'>First Page</a></li>";
+                //     $total_record = mysqli_num_rows($result);
+                //     $total_pages = ceil($total_record / $per_page);
+                //     if($total_pages != 0) {
+                //         echo "<li><a href='shop.php?cat_id=$cat_id & page=1'>First Page</a></li>";
 
-                        for ($i = 1; $i <= $total_pages; $i++) {
-                            echo "<li><a href='shop.php?cat_id=$cat_id & page=" . $i . "'>" . $i . "</a></li>";
-                        }
+                //         for ($i = 1; $i <= $total_pages; $i++) {
+                //             echo "<li><a href='shop.php?cat_id=$cat_id & page=" . $i . "'>" . $i . "</a></li>";
+                //         }
 
-                        echo "<li><a href='shop.php?cat_id=$cat_id & page=$total_pages'>Last Page</a></li>";
-                    }
-                }
-                if(isset($_GET['p_cat'])) {
-                    $sub_cat_id = $_GET['p_cat'];
-                    $query = "SELECT * FROM products where sub_cat_id = '$sub_cat_id'";
-                    $result = mysqli_query($con, $query);
+                //         echo "<li><a href='shop.php?cat_id=$cat_id & page=$total_pages'>Last Page</a></li>";
+                //     }
+                // }
+                // if(isset($_GET['p_cat'])) {
+                //     $sub_cat_id = $_GET['p_cat'];
+                //     $query = "SELECT * FROM products where sub_cat_id = '$sub_cat_id'";
+                //     $result = mysqli_query($con, $query);
 
-                    $total_record = mysqli_num_rows($result);
-                    $total_pages = ceil($total_record / $per_page);
-                    if($total_pages != 0) {
-                        echo "<li><a href='shop.php?p_cat=$sub_cat_id & page=1'>First Page</a></li>";
-                        for ($i = 1; $i <= $total_pages; $i++) {
-                            echo "<li><a href='shop.php?p_cat=$sub_cat_id & page=" . $i . "'>" . $i . "</a></li>";
-                        }
-                        echo "<li><a href='shop.php?p_cat=$sub_cat_id & page=$total_pages'>Last Page</a></li>";
-                    }
-                }
+                //     $total_record = mysqli_num_rows($result);
+                //     $total_pages = ceil($total_record / $per_page);
+                //     if($total_pages != 0) {
+                //         echo "<li><a href='shop.php?p_cat=$sub_cat_id & page=1'>First Page</a></li>";
+                //         for ($i = 1; $i <= $total_pages; $i++) {
+                //             echo "<li><a href='shop.php?p_cat=$sub_cat_id & page=" . $i . "'>" . $i . "</a></li>";
+                //         }
+                //         echo "<li><a href='shop.php?p_cat=$sub_cat_id & page=$total_pages'>Last Page</a></li>";
+                //     }
+                // }
                 ?>
                 </ul>
             </center>

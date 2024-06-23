@@ -124,15 +124,12 @@ include("functions/functions.php");
             <!-- colmd12 ends -->
 
             <!--colmd3 starts  -->
-            <div class="col-md-3">
-                <?php
-                include("includes/sidebar.php");
-                ?>
+            <div class="col-md-2">
             </div>
 
             <!-- colmd 9 start -->
 
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="box">
                     <div class="box-header">
                         <center>
@@ -170,6 +167,7 @@ include("functions/functions.php");
                 </div>
             </div>
         <!-- colmd9 ends -->
+         <div class="col-md-2"></div>
 
         </div>
         <!-- container ends -->

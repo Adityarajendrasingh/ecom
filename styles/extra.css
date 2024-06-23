@@ -20,7 +20,6 @@ body{
 
 
 #top{
-    /* background-color: #222831; */
     background: #0f0c29; 
 background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
 background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
@@ -189,7 +188,7 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
 .btn-primary {
     color: rgb(255, 255, 255);
     background-color: rgb(79, 191, 168);
-    /* border-color : rgb(65 179, 156); */
+    border-color : rgb(65 179, 156);
 }
 
 #search .navbar-form {
@@ -212,8 +211,13 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
 
 
 /* for slider */
+.carousel-inner {
+    height: 100%;
+}
+
 .carousel-inner img {
     width: 100%;
+    height: fit-content;
 }
 #slider {
     width: 100%;

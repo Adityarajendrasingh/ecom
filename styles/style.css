@@ -3,16 +3,20 @@ body{
     font-size: 14px;
     line-height: 1.4285143;
     color: #333333;
-    background-color: #e7e7e7;
+    /* background-color: #e7e7e7; */
 
 }
 
 #top{
     /* background-color: #222831; */
-    background: #0f0c29; 
+    /* background: #0f0c29; 
     background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
-    background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to left, #24243e, #302b63, #0f0c29); */
     padding: 10px 0;
+
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #top .offer {
@@ -89,6 +93,9 @@ body{
 /* header style now */
 .navbar {
 
+    /* background: #0f0c29; 
+    background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to left, #24243e, #302b63, #0f0c29); */
 background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
 background: linear-gradient(to right, #8E54E9, #4776E6);
 
@@ -96,6 +103,7 @@ background: linear-gradient(to right, #8E54E9, #4776E6);
 
 border: 0px solid transparent;
 border-radius: 0;
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     /* margin: -5px 0px 5px; */
 }
 /* Adjustments for the button and search */
@@ -193,22 +201,6 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
 }
 
 
-
-
-/* for slider */
-.carousel-inner img {
-    width: 100%;
-}
-#slider {
-    width: 100%;
-    margin-top: 800px;
-    margin-bottom: 40px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-
-
 /* Advantage style */
 
 .box {
@@ -299,11 +291,23 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
     }
 }
 #content .product {
-    background: #fff;
-    border: solid 1px #e6e6e6;
+    background: #c5eee6;
+    border: solid 1px #000000;
     box-sizing: border-box;
     margin-bottom: 30px;
+    border-radius: 20px;
 }
+#content .product img{
+    height: 23rem;
+    width: 100%;
+    border-radius: 20px;
+
+}
+#content .product:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s ease; 
+}
+
 
 #content .product .text p .price {
     font-size: 18px;
@@ -313,7 +317,6 @@ background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, F
 #content .product .text .buttons {
     clear: both;
     text-align: center;
-
 }
 #content .product .text h3 {
     text-align: center;
