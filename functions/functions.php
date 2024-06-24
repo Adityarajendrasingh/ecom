@@ -85,7 +85,7 @@ function totalPrice() {
             $pro_price = $row_product['product_price'];
             $pro_img1 = $row_product['product_img1'];
             echo "
-                <div class='col-md-4 col-sm-6'>
+                <div class='col-md-4 col-sm-6 center-responsive' id='responsiveproducts'>
                     <div class='product'>
                         <a href='details.php?pro_id=$pro_id'>
                             <img src='admin_area/product_images/$pro_img1' alt='' class='img-responsive'>
@@ -141,28 +141,31 @@ function totalPrice() {
 
     function getSubCats() {
         global $db;
-        $get_sub_cats = "SELECT * FROM sub_category";
-        $run_sub_cats = mysqli_query($db, $get_sub_cats);
-        if(mysqli_num_rows($run_sub_cats) > 0) {
-            while($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
-                $sub_cat_id=$row_sub_cats['sub_cat_id'];
-                $sub_cat_title=$row_sub_cats['sub_cat_name'];
-                echo "<li><input type='checkbox' class = 'get_sub_cat_id' id='' name='$sub_cat_title' value='$sub_cat_id'>  $sub_cat_title</li>";
+            $get_sub_cats = "SELECT * FROM sub_category";
+            $run_sub_cats = mysqli_query($db, $get_sub_cats);
+            if (mysqli_num_rows($run_sub_cats) > 0) {
+                while ($row_sub_cats = mysqli_fetch_array($run_sub_cats)) {
+                    $sub_cat_id = $row_sub_cats['sub_cat_id'];
+                    $sub_cat_title = $row_sub_cats['sub_cat_name'];
+                    echo "<li><input type='checkbox' class='get_sub_cat_id' id='sub_cat_$sub_cat_id' name='$sub_cat_title' value='$sub_cat_id'><label for='sub_cat_$sub_cat_id'>   $sub_cat_title</label></li><br>";
+                }
             }
+
+    }
+
+
+    function getCat() {
+        global $db;
+        $get_cat = "SELECT * FROM Categories";
+        $run_cat = mysqli_query($db, $get_cat);
+        while ($row_cat = mysqli_fetch_array($run_cat)) {
+            $cat_id = $row_cat['cat_id'];
+            $cat_title = $row_cat['cat_title'];
+            echo "<li><input type='checkbox' class='get_cat_id' id='cat_$cat_id' name='$cat_title' value='$cat_id'><label for='cat_$cat_id'>$cat_title</label></li><br>";
         }
     }
 
-
-function getCat() {
-    global $db;
-    $get_cat="select * from Categories";
-    $run_cat=mysqli_query($db, $get_cat);
-    while($row_cat=mysqli_fetch_array($run_cat)) {
-        $cat_id=$row_cat['cat_id'];
-        $cat_title=$row_cat['cat_title'];       
-        echo "<li><input type='checkbox' class = 'get_cat_id' id='' name='$cat_title' value='$cat_id'>  $cat_title</li>";
-    }
-}
+    
 
 function sendemail_verify($name, $email, $code) {
     
@@ -206,41 +209,5 @@ function sendemail_verify($name, $email, $code) {
                 console.error('AJAX error:', error);
             }
         });
-        // $.ajax({
-        //     url: 'show_sub_cat_list.php',
-        //     method: 'POST',
-        //     data: {
-        //         'cat_sub':allcats
-        //     },
-        //     success: function(response) {
-        //         console.log('Server response:', response);
-        //         $('#show_sub_cat').html(response);
-        //     },
-        //     error: function(xhr, status, error) {
-        //         console.error('AJAX error:', error);
-        //     }
-        // });
-    }   
-    // function applyFilterSubCategory() {
-    //     var allsubcats = [];
-    //     $('.get_sub_cat_id').each(function() {
-    //         if($(this).is(":checked")) {
-    //             allsubcats.push($(this).val());
-    //         }
-    //     });
-    //     $.ajax({
-    //         url: 'process.php',
-    //         method: 'POST',
-    //         data: {
-    //             'subcategories':allsubcats
-    //         },
-    //         success: function(response) {
-    //             console.log('Server response:', response);
-    //             $('#products_list_filter').html(response);
-    //         },
-    //         error: function(xhr, status, error) {
-    //             console.error('AJAX error:', error);
-    //         }
-    //     });
-    // }
+    }
 </script>

@@ -33,10 +33,10 @@
     <div class="panel-body">
         <div class="price-range-input">
             <label for="min-price">Min Price (INR):</label>
-            <input type="number" id="min-price" value="0">
+            <input type="number" id="min-price" value="0" style="color: black;">
             <br>
             <label for="max-price">Max Price (INR):</label>
-            <input type="number" id="max-price" value="100000000">
+            <input type="number" id="max-price" value="100000000" style="color: black;">
             <br><br>
             <!-- <button id="apply-filter-price" class="btn btn-primary">Apply Price Filter</button> -->
         </div>
