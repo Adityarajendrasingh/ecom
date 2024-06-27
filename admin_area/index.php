@@ -29,10 +29,6 @@ else {
     $run_cust = mysqli_query($con, $get_cust);
     $count_cust = mysqli_num_rows($run_cust);
 
-    $get_p_cat = "select * from product_category";
-    $run_p_cat = mysqli_query($con, $get_p_cat);
-    $count_p_cat = mysqli_num_rows($run_p_cat);   
-
     $get_p_cat = "select * from customer_order";
     $run_p_cat = mysqli_query($con, $get_p_cat);
     $count_order = mysqli_num_rows($run_p_cat);

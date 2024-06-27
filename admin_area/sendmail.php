@@ -50,7 +50,7 @@ if(isset($_POST['submit_admin_form'])) {
         
         $mail->Host       = 'smtp.gmail.com';
         $mail->Username   = 'webemailfornewsite@gmail.com';
-        $mail->Password   = '';
+        $mail->Password   = 'kymmdcdbajuonfcq';
 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
