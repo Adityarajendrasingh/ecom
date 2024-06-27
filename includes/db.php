@@ -1,3 +1,3 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "ecom");//to connect to database
+$con = mysqli_connect("localhost", "root", "", "ecom");
 ?>

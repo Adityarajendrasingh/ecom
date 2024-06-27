@@ -106,7 +106,7 @@ if(isset($_POST['submit'])) {
     move_uploaded_file($temp_admin_image, "admin_images/$admin_image");
 
 
-    $insert_q = "insert into admins (admin_name, admin_email, admin_pass, admin_image, admin_contact, admin_country, admin_job, admin_about) values('$admin_name','$admin_email', '$admin_pass','$admin_image','$admin_contact','$admin_country','$admin_job','$admin_about')";
+    $insert_q = "insert into admin (admin_name, admin_email, admin_pass, admin_image, admin_contact, admin_country, admin_job, admin_about) values('$admin_name','$admin_email', '$admin_pass','$admin_image','$admin_contact','$admin_country','$admin_job','$admin_about')";
     $run_q = mysqli_query($con, $insert_q);
     if($run_q) {
         echo "<script>alert('New admin has been registered successfully')</script>";

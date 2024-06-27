@@ -117,7 +117,7 @@ if(!isset($_SESSION['admin_email'])) {
            move_uploaded_file($temp_name3, "product_images/$product_img3")) {
             // Insert product data into the database
             $insert_product = "INSERT INTO products (sub_cat_id, cat_id, date, product_title, product_img1, product_img2, product_img3, product_price, product_desc, product_keywords, admin_id)
-                               VALUES (-1, '$product_cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_desc', '$product_keywords', (SELECT admin_id FROM admins WHERE admin_email = '$admin_email'))";
+                               VALUES (-1, '$product_cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_desc', '$product_keywords', (SELECT admin_id FROM admin WHERE admin_email = '$admin_email'))";
 
             $run_product = mysqli_query($con, $insert_product);
             if($run_product) {

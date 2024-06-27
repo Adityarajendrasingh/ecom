@@ -40,7 +40,7 @@ if(isset($_POST['login'])) {
     $run_customers=mysqli_query($con, $select_customers);
     $get_ip = getUserIP();
     $check_customer=mysqli_num_rows($run_customers);
-    $select_cart="select* from cart where ip_add='$get_ip'";
+    $select_cart="select* from carts where ip_add='$get_ip'";
     $run_cart=mysqli_query($con, $select_cart);
     $check_cart=mysqli_num_rows($run_cart);
     if($check_customer == 0) {

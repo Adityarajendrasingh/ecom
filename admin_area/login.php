@@ -50,7 +50,7 @@ include("includes/db.php");
 if(isset($_POST['admin_login'])) {
     $admin_email = mysqli_real_escape_string($con, $_POST['admin_email']);
     $admin_password = mysqli_real_escape_string($con, $_POST['admin_pass']);
-    $get_admin = "select * from admins where admin_email='$admin_email' AND admin_pass='$admin_password'";
+    $get_admin = "select * from admin where admin_email='$admin_email' AND admin_pass='$admin_password'";
     $run_admin=mysqli_query($con, $get_admin);
     $count = mysqli_num_rows($run_admin);
     if($count == 1) {

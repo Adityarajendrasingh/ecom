@@ -20,7 +20,7 @@
             $product_qty = $_POST['product_qty'];
             $product_size = $_POST['product_size'];
     
-            $check_product = "SELECT * FROM cart WHERE customer_email='$customer_email' AND p_id='$p_id'";
+            $check_product = "SELECT * FROM carts WHERE customer_email='$customer_email' AND p_id='$p_id'";
             $run_check = mysqli_query($db, $check_product);
     
             if(mysqli_num_rows($run_check) > 0) {
@@ -28,7 +28,7 @@
                 echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
             } 
             else {
-                $query = "INSERT INTO cart(p_id, ip_add, qty, size, customer_email) VALUES('$p_id', '$ip_add', '$product_qty', '$product_size', '$customer_email')";
+                $query = "INSERT INTO carts(p_id, ip_add, qty, size, customer_email) VALUES('$p_id', '$ip_add', '$product_qty', '$product_size', '$customer_email')";
                 $run_query = mysqli_query($db, $query);
                 echo "<script>alert('Itme added to cart')</script>";
                 echo "<script>window.open('details.php?pro_id=$p_id','_self')</script>";
@@ -40,7 +40,7 @@
     function item() {
         global $db;
         $ip_add = getUserIP();
-        $get_items="select * from cart where ip_add='$ip_add'";
+        $get_items="select * from carts where ip_add='$ip_add'";
         $run_item=mysqli_query($db, $get_items);
         $count = mysqli_num_rows($run_item);
         echo $count;
@@ -52,7 +52,7 @@ function totalPrice() {
     $ip_add = getUserIP();
     $total_price = 0;
 
-    $get_items = "SELECT * FROM cart WHERE ip_add='$ip_add'";
+    $get_items = "SELECT * FROM carts WHERE ip_add='$ip_add'";
     $run_items = mysqli_query($db, $get_items);
 
     while ($row = mysqli_fetch_array($run_items)) {

@@ -128,7 +128,7 @@ include("functions/functions.php");
                         <?php
                         $ip_add=getUserIP();
                         $customer_email = $_SESSION['customer_email'];
-                        $select_cart="select * from cart where customer_email='$customer_email'";
+                        $select_cart="select * from carts where customer_email='$customer_email'";
                         $run_cart = mysqli_query($con, $select_cart);
                         $count=mysqli_num_rows($run_cart);
                         ?>
@@ -211,7 +211,7 @@ include("functions/functions.php");
                     global $con;
                     if(isset($_POST['update'])) {
                         foreach($_POST['remove'] as $remove_id) {
-                            $delete_product = "delete from cart where p_id='$remove_id'";
+                            $delete_product = "delete from carts where p_id='$remove_id'";
                             $run_del=mysqli_query($con, $delete_product);
                             if($run_del) {
                                 echo "

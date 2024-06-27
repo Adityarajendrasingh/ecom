@@ -45,7 +45,7 @@
     function item() {
         global $db;
         $ip_add = getUserIP();
-        $get_items="select * from cart where ip_add='$ip_add'";
+        $get_items="select * from carts where ip_add='$ip_add'";
         $run_item=mysqli_query($db, $get_items);
         $count = mysqli_num_rows($run_item);
         echo $count;
@@ -55,7 +55,7 @@
         $ip_add = getUserIP();
         $total_price = 0;
     
-        $get_items = "SELECT * FROM cart WHERE ip_add='$ip_add'";
+        $get_items = "SELECT * FROM carts WHERE ip_add='$ip_add'";
         $run_items = mysqli_query($db, $get_items);
     
         while ($row = mysqli_fetch_array($run_items)) {

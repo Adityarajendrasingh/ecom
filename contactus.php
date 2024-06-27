@@ -189,7 +189,6 @@ include("includes/footer.php");
 
 
 <?php
-// admin mail
     if(isset($_POST['submit'])) {
         $senderName=$_POST['name'];
         $senderEmail=$_POST['email'];

@@ -45,7 +45,7 @@ else {
                             <?php
                                 $i = 0;
                                 $admin_email = $_SESSION['admin_email'];
-                                $find_admin = "select * from admins where admin_email = '$admin_email'";
+                                $find_admin = "select * from admin where admin_email = '$admin_email'";
                                 $run_find_admin = mysqli_query($con, $find_admin);
                                 $row = mysqli_fetch_array($run_find_admin);
                                 $admin_id = $row['admin_id'];

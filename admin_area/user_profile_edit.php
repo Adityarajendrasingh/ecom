@@ -12,7 +12,7 @@
 
   if (isset($_GET['edit_user'])) {
     $edit_user = $_GET['edit_user'];
-    $get_user = "select * from admins where admin_id='$edit_user'";
+    $get_user = "select * from admin where admin_id='$edit_user'";
     $run_user = mysqli_query($con,$get_user);
     $row_user = mysqli_fetch_array($run_user);
     $user_id = $row_user['admin_id'];
@@ -140,7 +140,7 @@ if(isset($_POST['update'])){
 
     move_uploaded_file($temp_name,"admin_images/$admin_image");
     
-    $update_user = "update admins set admin_name='$user_name', admin_email='$user_email', admin_pass='$user_pass', admin_image='$admin_image', admin_country='$user_country', admin_about='$user_about', admin_contact='$user_contact', admin_job='$user_job' where admin_id='$edit_user'";
+    $update_user = "update admin set admin_name='$user_name', admin_email='$user_email', admin_pass='$user_pass', admin_image='$admin_image', admin_country='$user_country', admin_about='$user_about', admin_contact='$user_contact', admin_job='$user_job' where admin_id='$edit_user'";
     
     $run_user = mysqli_query($con,$update_user);
     

@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin_email'])) {
 
 if(isset($_GET['admin_delete'])) {
     $delete_id=$_GET['admin_delete'];
-    $delete_admin = "delete from admins where admin_id='$delete_id'";
+    $delete_admin = "delete from admin where admin_id='$delete_id'";
     $run_q = mysqli_query($con, $delete_admin);
     if($run_q) {
         echo "<script>alert('Admin Deleted')</script>";
