@@ -3,14 +3,8 @@ body{
     font-size: 14px;
     line-height: 1.4285143;
     color: #333333;
-    /* background-color: rgb(193, 193, 130); */
-    /* background: #232526; 
-background: -webkit-linear-gradient(to left, #414345, #232526); 
-background: linear-gradient(to left, #414345, #232526);  */
 
-background: #4b6cb7;  /* fallback for old browsers */
-/* background: -webkit-linear-gradient(to left, #182848, #4b6cb7);
-background: linear-gradient(to left, #182848, #4b6cb7); */
+/* background: #4b6cb7;  */
 
 
 
@@ -18,11 +12,9 @@ background: linear-gradient(to left, #182848, #4b6cb7); */
 
 
 #top{
-    /* background-color: #222831; */
     background: #0f0c29; 
     background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
     background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
-    /* position: ; */
     padding: 10px 0;
 }
 
@@ -100,22 +92,14 @@ background: linear-gradient(to left, #182848, #4b6cb7); */
 /* header style now */
 .navbar {
 
-    /* background: #0f0c29; 
-    background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
-    background: linear-gradient(to left, #24243e, #302b63, #0f0c29); */
      background: #000000; 
     background: -webkit-linear-gradient(to left, #434343, #000000);
     background: linear-gradient(to left, #434343, #000000); 
 position: sticky;
-/* background: -webkit-linear-gradient(to right, #8E54E9, #4776E6); 
-background: linear-gradient(to right, #8E54E9, #4776E6); */
-
- /* background: transparent; */
 
 border: 0px solid transparent;
 border-radius: 0;
 box-shadow: 0 10px 15px rgba(128, 127, 127, 0.1);
-    /* margin: -5px 0px 5px; */
 }
 /* Adjustments for the button and search */
 @media (max-width: 991px) {
@@ -184,8 +168,8 @@ box-shadow: 0 10px 15px rgba(128, 127, 127, 0.1);
 
 .btn-primary {
     background: #0575E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to right, #021B79, #0575E6);
+background: linear-gradient(to right, #021B79, #0575E6);
 
 
 }

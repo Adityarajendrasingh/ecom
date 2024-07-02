@@ -15,7 +15,6 @@ include("functions/functions.php");
     <!-- bootstrap library -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/extra.css">
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- font awesome cdn -->
@@ -100,14 +99,10 @@ include("functions/functions.php");
                         </li>
                     </ul>
                 </div>
-                <!-- padding nav ends -->
                 <a href="cart.php" class="btn btn-primary navbar-btn right">
                     <i class="fa fa-shopping-cart"></i>
                     <span><?php item(); ?> items in cart</span>
                 </a>
-                <!-- navbar collapse right ends -->
-                <!-- search collapse -->
-                <!-- search collapse end -->
             </div>
 
             <!-- navbar collapse menu end -->
@@ -115,9 +110,6 @@ include("functions/functions.php");
     </div>
 
     <!-- navbar ends -->
-
-    
-
 
 <!-- slider starts -->
     <div class="container" id = "slider">
@@ -142,14 +134,14 @@ include("functions/functions.php");
                     <?php
                         $get_slider = "SELECT * FROM slider LIMIT 0,1";
                         $run_slider = mysqli_query($con, $get_slider);
-                        // while($row = mysqli_fetch_array($run_slider)) {
-                        $row = mysqli_fetch_array($run_slider);
-                        $slider_name = $row['slider_name'];
-                        $slider_image = $row['slider_image'];
-                        echo "<div class='item active' id ='carousel_img$i'>
-                                <img src='admin_area/slider_images/$slider_image' style='max-width: 100%;height: auto;'>
-                            </div>";
-                        // }
+                        while($row = mysqli_fetch_array($run_slider)) {
+                            $row = mysqli_fetch_array($run_slider);
+                            $slider_name = $row['slider_name'];
+                            $slider_image = $row['slider_image'];
+                            echo "<div class='item active' id ='carousel_img$i'>
+                                    <img src='admin_area/slider_images/$slider_image' style='max-width: 100%;height: auto;'>
+                                </div>";
+                        }
                     ?>
 
                     <?php
@@ -179,65 +171,38 @@ include("functions/functions.php");
         </div>
     </div>
 <!-- slider ends -->
-
-
-
-<!--advantages start  -->
-<div id = "advantage">
-    <div class="container">
-        <div class="same-height-row">
-            <?php
-
-                $get_boxes = "select * from boxes_section";
-                $run_boxes = mysqli_query($con, $get_boxes);
-                while($row = mysqli_fetch_array($run_boxes)) {
-                    $box_title = $row['box_title'];
-                    $box_desc = $row['box_desc'];
-
-            ?>
-
-            <div class="col-sm-4">
-                <div class="box same-height">
-                    <div class="icon">
-                        <!-- <i class = "fa fa-heart"></i> -->
-                    </div>
-                    <h3><a href="#"><?php echo $box_title; ?></a></h3>
-                    <p><?php echo $box_desc; ?></p>
-                </div>
-            </div>
-
-            <?php } ?>
-
-
-
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="images/background.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
         </div>
+      </div>
     </div>
-</div>
-<!-- advantages end -->
-
-
-<!-- <div id = "hot">
-    <div class="box">
-        <div class="container">
-            <div class="col-md-12">
-                <h2>Latest this week</h2>
-            </div>
+  </div>
+  <div class="b-example-divider"></div>
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Border hero with cropped image and shadows</h1>
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
         </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="images/background.jpg" alt="" width="720">
+      </div>
     </div>
-</div> -->
-
-<!-- product list starts -->
-<div id="content" class = "container">
-    <div class="row">
-        <?php
-            // getPro();
-        ?>
-    </div>
-</div>
-
-<!-- product list starts -->
-
-
+  </div>
+  <div class="b-example-divider"></div>
 <!-- Footer Starts -->
 <?php
 include("includes/footer.php");
