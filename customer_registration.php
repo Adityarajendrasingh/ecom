@@ -13,7 +13,6 @@ include("functions/functions.php");
     <!-- bootstrap library -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style.css">
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- font awesome cdn -->
@@ -128,9 +127,16 @@ include("functions/functions.php");
                     <label>Customer Email</label>
                     <input type="email" name="c_email" class="form-control" required="">
                 </div>
-                <div class="form-group">
-                    <label>Customer Password</label>
-                    <input type="password" name="c_password" class="form-control" required="">
+                <div class="form-group" style="position: relative;">
+                    <label for="password">Customer Password</label>
+                    <input type="password" name="c_password" id="cust_password" class="form-control" required="" style="padding-right: 40px;">
+                    <div class="far fa-eye" onclick="
+        const password = document.getElementById('cust_password');
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        const toggleIcon = document.getElementById('togglePassword');
+        toggleIcon.classList.toggle('fa-eye-slash');" style="position: absolute; right: 10px; top: 34px; cursor: pointer;"></div>
                 </div>
                 <div class="form-group">
                     <label>Country</label>
@@ -166,17 +172,6 @@ include("functions/functions.php");
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        // var messageText = "<?php echo $_SESSION['status'] ?? '';  ?>";
-        // if(messageText != ''){
-        //     Swal.fire({
-        //         title: "Thank you!",
-        //         text: messageText,
-        //         icon: "success"
-        //     });
-        //     <?php unset($_SESSION['status']); ?>
-        // }
-    </script>
         <!-- container ends -->
     </div>
 
@@ -186,6 +181,10 @@ include("functions/functions.php");
 include("includes/footer.php");
 ?>
 <!-- Footer ends -->
+ <script>
+
+ </script>
+    <script src="js/main.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
